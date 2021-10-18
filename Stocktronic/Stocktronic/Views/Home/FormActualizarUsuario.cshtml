@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "FormActualizarUsuario";
+}
+
+<head>
+    <link href="~/Styles/checkout.css" rel="stylesheet" />
+    <link href="~/Styles/formsButtons.css" rel="stylesheet" />
+</head>
+
+<body>
+    <main class="page payment-page header-top">
+        <section class="payment-form dark">
+            <div class="container">
+
+                <div class="block-heading">
+                    <h2>Agregar Usuario</h2>
+                </div>
+
+                <!-- Begin Form -->
+                <form action="" method="post">
+                    <div class="card-details">
+                        <h3 class="title text-uppercase">Actualizar Usuario</h3>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label id="idVal">ID Usuario</label>
+                                <input id="idUsuario" name="idUsuario" disabled type="text" class="form-control" placeholder="ID" value="1" required>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label id="nomVal">Nombre</label>
+                                <input id="nombre" name="nombre" maxlength="20" type="text" class="form-control" placeholder="Nombre" value="Mariano" required>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label id="appVal">Primer Apellido</label>
+                                <input id="apellido1" name="apellido1" maxlength="20" type="text" class="form-control" placeholder="Primer Apellido" value="Rivera" required>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label id="app2Val">Segundo Apellido</label>
+                                <input id="apellido2" name="apellido2" maxlength="20" type="text" class="form-control" placeholder="Segundo Apellido" value="Castillo" required>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label id="emailVal">Correo Electrónico</label>
+                                <input id="email" name="email" type="email" maxlength="80" class="form-control" placeholder="Correo Electrónico" value="mariano@stocktronic.com" required>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label id="passVal">Contraseña</label>
+                                <input id="password" name="password" type="password" maxlength="15" class="form-control" placeholder="Contraseña" value="123456" required>
+                            </div>
+
+                            <div class="form-group col-sm-12">
+                                <label id="tipoVal">Tipo de Usuario</label>
+                                <select id="selectTipo" name="selectTipo" class="form-control">
+                                    <option value="1">Administrador</option>
+                                </select>
+                            </div>
+                            <div class="container">
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <a href="tablaUsuarios.php"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <button id="btnUpdate" type="submit" class="btn btn-block">Actualizar usuario</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>

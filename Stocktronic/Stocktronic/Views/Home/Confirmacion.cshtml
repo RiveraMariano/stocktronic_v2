@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Confirmacion";
+}
+
+<head>
+    <link href="~/Styles/confirmacion.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <div class="container header-top mb-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="text-left logo p-2 px-5"> <img src="../images/isotipoDark.svg" width="40"> </div>
+                    <div class="invoice p-5">
+                        <h5>Tú orden ha sido confirmada!</h5> <span class="font-weight-bold d-block mt-4">Hola Mariano Rivera</span> <span>Tú orden ha sido confirmada y podrás ver los detalles de esta en tú historial</span>
+                        <div class="payment border-top mt-3 mb-3 border-bottom table-responsive">
+                            <table class="table table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="py-2"><span class="d-block text-muted mb-2">Fec. Orden</span><span>27/7/21</span></div>
+                                        </td>
+                                        <td>
+                                            <div class="py-2"><span class="d-block text-muted mb-2">No. Orden</span><span>46523</span> </div>
+                                        </td>
+                                        <td>
+                                            <div class="py-2"><span class="d-block text-muted mb-2">Método Pago</span><span>Mastercard</span></div>
+                                        </td>
+                                        <td>
+                                            <div class="py-2"><span class="d-block text-muted mb-2">Dir. Facturación</span><span>San José, Curridabat</span></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="product border-bottom table-responsive">
+                            <table class="table table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <td width="20%"> <img src="~/Images/wireless_2.png" width="80" height="70" /></td>
+                                        <td width="60%">
+                                            <span class="font-weight-bold">ColorBulb</span>
+                                            <div class="product-qty"> <span class="d-block mt-2">Cantidad: 3</span></div>
+                                        </td>
+                                        <td width="20%">
+                                            <div class="text-right"><span class="font-weight-bold">₡500</span> </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row d-flex justify-content-end">
+                            <div class="col-md-5">
+                                <table class="table table-borderless">
+                                    <tbody class="totals">
+                                        <tr>
+                                            <td>
+                                                <div class="text-left"> <span class="text-muted">Subtotal</span> </div>
+                                            </td>
+                                            <td>
+                                                <div class="text-right"> <span>₡3000</span> </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                        <tr>
+                                            <td>
+                                                <div class="text-left"> <span class="text-muted">Impuestos:</span> </div>
+                                            </td>
+                                            <td>
+                                                <div class="text-right"> <span class='text-danger'>₡500</span> </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-top border-bottom">
+                                            <td>
+                                                <div class="text-left"> <span class="font-weight-bold">Monto total</span> </div>
+                                            </td>
+                                            <td>
+                                                <div class="text-right"> <span class='font-weight-bold'>₡3500</span> </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <p class="font-weight-bold mb-0">Gracias por confiar en nosotros!</p> <span>Stocktronic Team</span>
+                    </div>
+                    <div class="d-flex justify-content-between footer p-3"> <span>Regresar a la<a href="inicio.php"> página principal</a></span> <span>Diciembre, 2021</span> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Quitar Footer a esto, esto no tenia -->
+

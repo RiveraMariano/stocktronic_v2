@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "FormActualizarProducto";
+}
+
+<head>
+    <link href="~/Styles/checkout.css" rel="stylesheet" />
+    <link href="~/Styles/formsButtons.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <main class="page payment-page header-top">
+        <section class="payment-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2>Actualizar Producto</h2>
+                </div>
+
+                <!-- Begin Form -->
+                <form action="" method="post">
+                    <div class="card-details">
+                        <h3 class="title text-uppercase">Actualizar Producto</h3>
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label id="idVal">ID Producto</label>
+                                <input id="idProducto" name="id" type="number" class="form-control" placeholder="Identificador" value="777" disabled>
+                            </div>
+                            <div class="form-group col-sm-8">
+                                <label id="nomVal">Nombre Producto</label>
+                                <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" value="ColorBulb" required>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label id="descVal">Descripción Producto</label>
+                                <input id="desc" name="desc" type="text" class="form-control" placeholder="Descripcion" value="Bombillo de colores" required>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label id="urlVal">URL Imagen</label>
+                                <input id="url" name="url" type="text" class="form-control" placeholder="URL" value="https://urlimagen.com" required>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label id="precioVal">Precio Producto</label>
+                                <input id="precio" name="precio" type="number" class="form-control" placeholder="Precio" value="5000" required>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label id="cantVal">Cantidad Producto</label>
+                                <input id="cant" name="cantidad" type="number" class="form-control" placeholder="Cantidad" value="90" required>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label id="proveedorVal">Proveedor</label>
+                                <select id="selectProveedor" name="proveedor" class="form-control">
+                                    <option value="1">Nombre Proveedor</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label id="categoriaVal">Categoría</label>
+                                <select id="selectCategoria" name="categoria" class="form-control">
+                                    <option value="1">Componente</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <a href="tablaProductos.php"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <button id="btnUpdate" type="submit" class="btn btn-block">Actualizar Producto</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>

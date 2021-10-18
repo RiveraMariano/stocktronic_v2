@@ -10,7 +10,7 @@ namespace Stocktronic.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("~/Views/Home/Inicio.cshtml");
         }
 
         public ActionResult About()

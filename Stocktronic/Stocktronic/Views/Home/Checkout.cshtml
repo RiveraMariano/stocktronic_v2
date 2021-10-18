@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<head>
+    <link href="~/Styles/checkout.css" rel="stylesheet" />
+    <link href="~/Styles/formsButtons.css" rel="stylesheet" />
+</head>
+
+<body>
+    <main class="page payment-page header-top">
+        <section class="payment-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2>Formulario de Pago</h2>
+                    <p>Una vez finalizado la compra le redirigirá a una página de confirmación de su pedido.</p>
+                </div>
+
+                <!-- First section -->
+                <form id="formCheckout" action="">
+                    <div class="products">
+                        <h3 class="title">Checkout</h3>
+                        <div class="item">
+                            <span class="price">₡2000</span>
+                            <p class="item-name">ColorBulb 3</p>
+                            <p class="item-description">Un bombillo de colores</p>
+                        </div>
+                        <div class="total">Total<span class="price">₡3000</span></div>
+                    </div>
+
+                    <!-- Second section -->
+                    <div class="card-details">
+                        <h3 class="title text-uppercase">Método de Pago</h3>
+                        <div class="row">
+                            <div class="form-group col-sm-7">
+                                <label for="metodo">Método de Pago</label>
+                                <select id="selectMet" name="metodo" class="form-control">
+                                    <option value="1">Mastercard</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label id="fecVal">Fecha de Expiración</label>
+                                <div class="input-group expiration-date">
+                                    <select id="selectMM" class="form-control">
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    <span class="date-separator">/</span>
+                                    <select id="selectYY" class="form-control">
+                                        <option value="01">2021</option>
+                                        <option value="01">2022</option>
+                                        <option value="01">2023</option>
+                                        <option value="01">2024</option>
+                                        <option value="01">2025</option>
+                                        <option value="01">2026</option>
+                                        <option value="01">2027</option>
+                                        <option value="01">2028</option>
+                                        <option value="01">2029</option>
+                                        <option value="01">2030</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-7">
+                                <label id="tarjetaVal">Número de Tarjeta</label>
+                                <input id="tarjeta" name="tarjeta" type="number" class="form-control" maxlength="16" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label id="cvcVal">Código de Seguridad</label>
+                                <input id="cvc" type="number" class="form-control" placeholder="CVC" maxlength="3" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label id="dir1Val">Dirección Línea 1</label>
+                                <input id="dir1" name="dir1" type="text" class="form-control" maxlength="30">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label id="dir2Val">Dirección Línea 2</label>
+                                <div class="input-group expiration-date">
+                                    <input id="dir2" name="dir2" type="text" class="form-control" maxlength="30">
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label id="telVal">Teléfono</label>
+                                <input id="tel" name="telefono" type="number" class="form-control" maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label id="codVal">Código Postal</label>
+                                <input id="cod" type="number" class="form-control" maxlength="5" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <a href="carrito.php"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <button id="btnBuy" name="submitBtn" type="button" class="btn btn-block">Confirmar Compra</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/Scripts/checkout.js"></script>
+
+</body>
+
