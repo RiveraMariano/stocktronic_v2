@@ -1,0 +1,936 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="STModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PF_CARRITO">
+          <Key>
+            <PropertyRef Name="ID_CARRITO" />
+          </Key>
+          <Property Name="ID_CARRITO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CAR_CANTIDAD" Type="bigint" Nullable="false" />
+          <Property Name="FK_ID_USUARIO" Type="bigint" Nullable="false" />
+          <Property Name="FK_ID_PRODUCTO" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PF_CATEGORIA">
+          <Key>
+            <PropertyRef Name="ID_CATEGORIA" />
+          </Key>
+          <Property Name="ID_CATEGORIA" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CAT_TIPO" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PF_DETALLE_ORDEN">
+          <Key>
+            <PropertyRef Name="ID_DETALLEORDEN" />
+          </Key>
+          <Property Name="ID_DETALLEORDEN" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_ID_PRODUCTO" Type="bigint" Nullable="false" />
+          <Property Name="DET_PRECIO" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DET_CANTIDAD" Type="bigint" Nullable="false" />
+          <Property Name="DET_URL_IMAGEN" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="FK_ID_ORDEN" Type="bigint" Nullable="false" />
+          <Property Name="FK_ID_USUARIO" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PF_H_ENTREGAS">
+          <Key>
+            <PropertyRef Name="ID_ENTREGAS" />
+          </Key>
+          <Property Name="ID_ENTREGAS" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ENT_FEC_ENTREGA" Type="datetime" Nullable="false" />
+          <Property Name="FK_ID_PRODUCTO" Type="bigint" Nullable="false" />
+          <Property Name="FK_ID_PROVEEDOR" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PF_H_ERRORES">
+          <Key>
+            <PropertyRef Name="ID_ERRORES" />
+          </Key>
+          <Property Name="ID_ERRORES" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ERR_FEC" Type="datetime" Nullable="false" />
+          <Property Name="ERR_DESCRIPCION" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FK_ID_USUARIO" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PF_INFO_PAGO">
+          <Key>
+            <PropertyRef Name="ID_INFOPAGO" />
+          </Key>
+          <Property Name="ID_INFOPAGO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PAG_NUM_TARJETA" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="PAG_DIR_FACTURACION" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PAG_DIR_FACTURACION2" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PAG_TELEFONO" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="PAG_TOTAL" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FK_ID_USUARIO" Type="bigint" Nullable="false" />
+          <Property Name="FK_ID_METODOPAGO" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PF_METODO_PAGO">
+          <Key>
+            <PropertyRef Name="ID_METODOPAGO" />
+          </Key>
+          <Property Name="ID_METODOPAGO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="METP_NOMBRE" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PF_ORDEN">
+          <Key>
+            <PropertyRef Name="ID_ORDEN" />
+          </Key>
+          <Property Name="ID_ORDEN" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ORD_FEC_ORDEN" Type="datetime" Nullable="false" />
+          <Property Name="ORD_MONTO_TOTAL" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FK_ID_INFOPAGO" Type="bigint" Nullable="false" />
+          <Property Name="FK_ID_USUARIO" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PF_PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_PRODUCTO" />
+          </Key>
+          <Property Name="ID_PRODUCTO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRO_NOMBRE" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PRO_DESCRIPCION" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="PRO_URL_IMAGEN" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="PRO_PRECIO" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PRO_CANTIDAD" Type="bigint" Nullable="false" />
+          <Property Name="FK_ID_PROVEEDOR" Type="bigint" Nullable="false" />
+          <Property Name="FK_ID_CATEGORIA" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PF_PROVEEDOR">
+          <Key>
+            <PropertyRef Name="ID_PROVEEDOR" />
+          </Key>
+          <Property Name="ID_PROVEEDOR" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PROV_NOMBRE" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PROV_CED_JURIDICA" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PROV_FEC_AFILIACION" Type="datetime" Nullable="false" />
+          <Property Name="FK_ID_SUCURSAL" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PF_ROL">
+          <Key>
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="ID_ROL" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ROL_TIPO" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PF_SUCURSAL">
+          <Key>
+            <PropertyRef Name="ID_SUCURSAL" />
+          </Key>
+          <Property Name="ID_SUCURSAL" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SUC_LOCALIZACION" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PF_USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USR_NOMBRE" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="USR_APELLIDO1" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="USR_APELLIDO2" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="USR_EMAIL" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="USR_PASSWORD" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="FK_ID_ROL" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CARRITO_PRODUCTO">
+          <End Role="PF_PRODUCTO" Type="Self.PF_PRODUCTO" Multiplicity="1" />
+          <End Role="PF_CARRITO" Type="Self.PF_CARRITO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_PRODUCTO">
+              <PropertyRef Name="ID_PRODUCTO" />
+            </Principal>
+            <Dependent Role="PF_CARRITO">
+              <PropertyRef Name="FK_ID_PRODUCTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CARRITO_USUARIO">
+          <End Role="PF_USUARIO" Type="Self.PF_USUARIO" Multiplicity="1" />
+          <End Role="PF_CARRITO" Type="Self.PF_CARRITO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="PF_CARRITO">
+              <PropertyRef Name="FK_ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETALLEORDEN_ORDEN">
+          <End Role="PF_ORDEN" Type="Self.PF_ORDEN" Multiplicity="1" />
+          <End Role="PF_DETALLE_ORDEN" Type="Self.PF_DETALLE_ORDEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_ORDEN">
+              <PropertyRef Name="ID_ORDEN" />
+            </Principal>
+            <Dependent Role="PF_DETALLE_ORDEN">
+              <PropertyRef Name="FK_ID_ORDEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENTREGAS_PRODUCTO">
+          <End Role="PF_PRODUCTO" Type="Self.PF_PRODUCTO" Multiplicity="1" />
+          <End Role="PF_H_ENTREGAS" Type="Self.PF_H_ENTREGAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_PRODUCTO">
+              <PropertyRef Name="ID_PRODUCTO" />
+            </Principal>
+            <Dependent Role="PF_H_ENTREGAS">
+              <PropertyRef Name="FK_ID_PRODUCTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENTREGAS_PROVEEDOR">
+          <End Role="PF_PROVEEDOR" Type="Self.PF_PROVEEDOR" Multiplicity="1" />
+          <End Role="PF_H_ENTREGAS" Type="Self.PF_H_ENTREGAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_PROVEEDOR">
+              <PropertyRef Name="ID_PROVEEDOR" />
+            </Principal>
+            <Dependent Role="PF_H_ENTREGAS">
+              <PropertyRef Name="FK_ID_PROVEEDOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ERRORES_USUARIO">
+          <End Role="PF_USUARIO" Type="Self.PF_USUARIO" Multiplicity="1" />
+          <End Role="PF_H_ERRORES" Type="Self.PF_H_ERRORES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="PF_H_ERRORES">
+              <PropertyRef Name="FK_ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INFOPAGO_METODOPAGO">
+          <End Role="PF_METODO_PAGO" Type="Self.PF_METODO_PAGO" Multiplicity="1" />
+          <End Role="PF_INFO_PAGO" Type="Self.PF_INFO_PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_METODO_PAGO">
+              <PropertyRef Name="ID_METODOPAGO" />
+            </Principal>
+            <Dependent Role="PF_INFO_PAGO">
+              <PropertyRef Name="FK_ID_METODOPAGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INFOPAGO_USUARIO">
+          <End Role="PF_USUARIO" Type="Self.PF_USUARIO" Multiplicity="1" />
+          <End Role="PF_INFO_PAGO" Type="Self.PF_INFO_PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="PF_INFO_PAGO">
+              <PropertyRef Name="FK_ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDEN_INFOPAGO">
+          <End Role="PF_INFO_PAGO" Type="Self.PF_INFO_PAGO" Multiplicity="1" />
+          <End Role="PF_ORDEN" Type="Self.PF_ORDEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_INFO_PAGO">
+              <PropertyRef Name="ID_INFOPAGO" />
+            </Principal>
+            <Dependent Role="PF_ORDEN">
+              <PropertyRef Name="FK_ID_INFOPAGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDEN_USUARIO">
+          <End Role="PF_USUARIO" Type="Self.PF_USUARIO" Multiplicity="1" />
+          <End Role="PF_ORDEN" Type="Self.PF_ORDEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="PF_ORDEN">
+              <PropertyRef Name="FK_ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTO_CATEGORIA">
+          <End Role="PF_CATEGORIA" Type="Self.PF_CATEGORIA" Multiplicity="1" />
+          <End Role="PF_PRODUCTO" Type="Self.PF_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_CATEGORIA">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Principal>
+            <Dependent Role="PF_PRODUCTO">
+              <PropertyRef Name="FK_ID_CATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTO_PROVEEDOR">
+          <End Role="PF_PROVEEDOR" Type="Self.PF_PROVEEDOR" Multiplicity="1" />
+          <End Role="PF_PRODUCTO" Type="Self.PF_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_PROVEEDOR">
+              <PropertyRef Name="ID_PROVEEDOR" />
+            </Principal>
+            <Dependent Role="PF_PRODUCTO">
+              <PropertyRef Name="FK_ID_PROVEEDOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROVEEDOR_SUCURSAL">
+          <End Role="PF_SUCURSAL" Type="Self.PF_SUCURSAL" Multiplicity="1" />
+          <End Role="PF_PROVEEDOR" Type="Self.PF_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_SUCURSAL">
+              <PropertyRef Name="ID_SUCURSAL" />
+            </Principal>
+            <Dependent Role="PF_PROVEEDOR">
+              <PropertyRef Name="FK_ID_SUCURSAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_ROL">
+          <End Role="PF_ROL" Type="Self.PF_ROL" Multiplicity="1" />
+          <End Role="PF_USUARIO" Type="Self.PF_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_ROL">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="PF_USUARIO">
+              <PropertyRef Name="FK_ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="STModelStoreContainer">
+          <EntitySet Name="PF_CARRITO" EntityType="Self.PF_CARRITO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PF_CATEGORIA" EntityType="Self.PF_CATEGORIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PF_DETALLE_ORDEN" EntityType="Self.PF_DETALLE_ORDEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PF_H_ENTREGAS" EntityType="Self.PF_H_ENTREGAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PF_H_ERRORES" EntityType="Self.PF_H_ERRORES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PF_INFO_PAGO" EntityType="Self.PF_INFO_PAGO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PF_METODO_PAGO" EntityType="Self.PF_METODO_PAGO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PF_ORDEN" EntityType="Self.PF_ORDEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PF_PRODUCTO" EntityType="Self.PF_PRODUCTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PF_PROVEEDOR" EntityType="Self.PF_PROVEEDOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PF_ROL" EntityType="Self.PF_ROL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PF_SUCURSAL" EntityType="Self.PF_SUCURSAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PF_USUARIO" EntityType="Self.PF_USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CARRITO_PRODUCTO" Association="Self.FK_CARRITO_PRODUCTO">
+            <End Role="PF_PRODUCTO" EntitySet="PF_PRODUCTO" />
+            <End Role="PF_CARRITO" EntitySet="PF_CARRITO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CARRITO_USUARIO" Association="Self.FK_CARRITO_USUARIO">
+            <End Role="PF_USUARIO" EntitySet="PF_USUARIO" />
+            <End Role="PF_CARRITO" EntitySet="PF_CARRITO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETALLEORDEN_ORDEN" Association="Self.FK_DETALLEORDEN_ORDEN">
+            <End Role="PF_ORDEN" EntitySet="PF_ORDEN" />
+            <End Role="PF_DETALLE_ORDEN" EntitySet="PF_DETALLE_ORDEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENTREGAS_PRODUCTO" Association="Self.FK_ENTREGAS_PRODUCTO">
+            <End Role="PF_PRODUCTO" EntitySet="PF_PRODUCTO" />
+            <End Role="PF_H_ENTREGAS" EntitySet="PF_H_ENTREGAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENTREGAS_PROVEEDOR" Association="Self.FK_ENTREGAS_PROVEEDOR">
+            <End Role="PF_PROVEEDOR" EntitySet="PF_PROVEEDOR" />
+            <End Role="PF_H_ENTREGAS" EntitySet="PF_H_ENTREGAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ERRORES_USUARIO" Association="Self.FK_ERRORES_USUARIO">
+            <End Role="PF_USUARIO" EntitySet="PF_USUARIO" />
+            <End Role="PF_H_ERRORES" EntitySet="PF_H_ERRORES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INFOPAGO_METODOPAGO" Association="Self.FK_INFOPAGO_METODOPAGO">
+            <End Role="PF_METODO_PAGO" EntitySet="PF_METODO_PAGO" />
+            <End Role="PF_INFO_PAGO" EntitySet="PF_INFO_PAGO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INFOPAGO_USUARIO" Association="Self.FK_INFOPAGO_USUARIO">
+            <End Role="PF_USUARIO" EntitySet="PF_USUARIO" />
+            <End Role="PF_INFO_PAGO" EntitySet="PF_INFO_PAGO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDEN_INFOPAGO" Association="Self.FK_ORDEN_INFOPAGO">
+            <End Role="PF_INFO_PAGO" EntitySet="PF_INFO_PAGO" />
+            <End Role="PF_ORDEN" EntitySet="PF_ORDEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDEN_USUARIO" Association="Self.FK_ORDEN_USUARIO">
+            <End Role="PF_USUARIO" EntitySet="PF_USUARIO" />
+            <End Role="PF_ORDEN" EntitySet="PF_ORDEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTO_CATEGORIA" Association="Self.FK_PRODUCTO_CATEGORIA">
+            <End Role="PF_CATEGORIA" EntitySet="PF_CATEGORIA" />
+            <End Role="PF_PRODUCTO" EntitySet="PF_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTO_PROVEEDOR" Association="Self.FK_PRODUCTO_PROVEEDOR">
+            <End Role="PF_PROVEEDOR" EntitySet="PF_PROVEEDOR" />
+            <End Role="PF_PRODUCTO" EntitySet="PF_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROVEEDOR_SUCURSAL" Association="Self.FK_PROVEEDOR_SUCURSAL">
+            <End Role="PF_SUCURSAL" EntitySet="PF_SUCURSAL" />
+            <End Role="PF_PROVEEDOR" EntitySet="PF_PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_ROL" Association="Self.FK_USUARIO_ROL">
+            <End Role="PF_ROL" EntitySet="PF_ROL" />
+            <End Role="PF_USUARIO" EntitySet="PF_USUARIO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="STModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PF_CARRITO">
+          <Key>
+            <PropertyRef Name="ID_CARRITO" />
+          </Key>
+          <Property Name="ID_CARRITO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CAR_CANTIDAD" Type="Int64" Nullable="false" />
+          <Property Name="FK_ID_USUARIO" Type="Int64" Nullable="false" />
+          <Property Name="FK_ID_PRODUCTO" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="PF_PRODUCTO" Relationship="Self.FK_CARRITO_PRODUCTO" FromRole="PF_CARRITO" ToRole="PF_PRODUCTO" />
+          <NavigationProperty Name="PF_USUARIO" Relationship="Self.FK_CARRITO_USUARIO" FromRole="PF_CARRITO" ToRole="PF_USUARIO" />
+        </EntityType>
+        <EntityType Name="PF_CATEGORIA">
+          <Key>
+            <PropertyRef Name="ID_CATEGORIA" />
+          </Key>
+          <Property Name="ID_CATEGORIA" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CAT_TIPO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PF_PRODUCTO" Relationship="Self.FK_PRODUCTO_CATEGORIA" FromRole="PF_CATEGORIA" ToRole="PF_PRODUCTO" />
+        </EntityType>
+        <EntityType Name="PF_DETALLE_ORDEN">
+          <Key>
+            <PropertyRef Name="ID_DETALLEORDEN" />
+          </Key>
+          <Property Name="ID_DETALLEORDEN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_ID_PRODUCTO" Type="Int64" Nullable="false" />
+          <Property Name="DET_PRECIO" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DET_CANTIDAD" Type="Int64" Nullable="false" />
+          <Property Name="DET_URL_IMAGEN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FK_ID_ORDEN" Type="Int64" Nullable="false" />
+          <Property Name="FK_ID_USUARIO" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="PF_ORDEN" Relationship="Self.FK_DETALLEORDEN_ORDEN" FromRole="PF_DETALLE_ORDEN" ToRole="PF_ORDEN" />
+        </EntityType>
+        <EntityType Name="PF_H_ENTREGAS">
+          <Key>
+            <PropertyRef Name="ID_ENTREGAS" />
+          </Key>
+          <Property Name="ID_ENTREGAS" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ENT_FEC_ENTREGA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FK_ID_PRODUCTO" Type="Int64" Nullable="false" />
+          <Property Name="FK_ID_PROVEEDOR" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="PF_PRODUCTO" Relationship="Self.FK_ENTREGAS_PRODUCTO" FromRole="PF_H_ENTREGAS" ToRole="PF_PRODUCTO" />
+          <NavigationProperty Name="PF_PROVEEDOR" Relationship="Self.FK_ENTREGAS_PROVEEDOR" FromRole="PF_H_ENTREGAS" ToRole="PF_PROVEEDOR" />
+        </EntityType>
+        <EntityType Name="PF_H_ERRORES">
+          <Key>
+            <PropertyRef Name="ID_ERRORES" />
+          </Key>
+          <Property Name="ID_ERRORES" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ERR_FEC" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ERR_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FK_ID_USUARIO" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="PF_USUARIO" Relationship="Self.FK_ERRORES_USUARIO" FromRole="PF_H_ERRORES" ToRole="PF_USUARIO" />
+        </EntityType>
+        <EntityType Name="PF_INFO_PAGO">
+          <Key>
+            <PropertyRef Name="ID_INFOPAGO" />
+          </Key>
+          <Property Name="ID_INFOPAGO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PAG_NUM_TARJETA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PAG_DIR_FACTURACION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PAG_DIR_FACTURACION2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PAG_TELEFONO" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PAG_TOTAL" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FK_ID_USUARIO" Type="Int64" Nullable="false" />
+          <Property Name="FK_ID_METODOPAGO" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="PF_METODO_PAGO" Relationship="Self.FK_INFOPAGO_METODOPAGO" FromRole="PF_INFO_PAGO" ToRole="PF_METODO_PAGO" />
+          <NavigationProperty Name="PF_USUARIO" Relationship="Self.FK_INFOPAGO_USUARIO" FromRole="PF_INFO_PAGO" ToRole="PF_USUARIO" />
+          <NavigationProperty Name="PF_ORDEN" Relationship="Self.FK_ORDEN_INFOPAGO" FromRole="PF_INFO_PAGO" ToRole="PF_ORDEN" />
+        </EntityType>
+        <EntityType Name="PF_METODO_PAGO">
+          <Key>
+            <PropertyRef Name="ID_METODOPAGO" />
+          </Key>
+          <Property Name="ID_METODOPAGO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="METP_NOMBRE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PF_INFO_PAGO" Relationship="Self.FK_INFOPAGO_METODOPAGO" FromRole="PF_METODO_PAGO" ToRole="PF_INFO_PAGO" />
+        </EntityType>
+        <EntityType Name="PF_ORDEN">
+          <Key>
+            <PropertyRef Name="ID_ORDEN" />
+          </Key>
+          <Property Name="ID_ORDEN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ORD_FEC_ORDEN" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ORD_MONTO_TOTAL" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FK_ID_INFOPAGO" Type="Int64" Nullable="false" />
+          <Property Name="FK_ID_USUARIO" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="PF_DETALLE_ORDEN" Relationship="Self.FK_DETALLEORDEN_ORDEN" FromRole="PF_ORDEN" ToRole="PF_DETALLE_ORDEN" />
+          <NavigationProperty Name="PF_INFO_PAGO" Relationship="Self.FK_ORDEN_INFOPAGO" FromRole="PF_ORDEN" ToRole="PF_INFO_PAGO" />
+          <NavigationProperty Name="PF_USUARIO" Relationship="Self.FK_ORDEN_USUARIO" FromRole="PF_ORDEN" ToRole="PF_USUARIO" />
+        </EntityType>
+        <EntityType Name="PF_PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_PRODUCTO" />
+          </Key>
+          <Property Name="ID_PRODUCTO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRO_NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRO_DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRO_URL_IMAGEN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRO_PRECIO" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PRO_CANTIDAD" Type="Int64" Nullable="false" />
+          <Property Name="FK_ID_PROVEEDOR" Type="Int64" Nullable="false" />
+          <Property Name="FK_ID_CATEGORIA" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="PF_CARRITO" Relationship="Self.FK_CARRITO_PRODUCTO" FromRole="PF_PRODUCTO" ToRole="PF_CARRITO" />
+          <NavigationProperty Name="PF_CATEGORIA" Relationship="Self.FK_PRODUCTO_CATEGORIA" FromRole="PF_PRODUCTO" ToRole="PF_CATEGORIA" />
+          <NavigationProperty Name="PF_H_ENTREGAS" Relationship="Self.FK_ENTREGAS_PRODUCTO" FromRole="PF_PRODUCTO" ToRole="PF_H_ENTREGAS" />
+          <NavigationProperty Name="PF_PROVEEDOR" Relationship="Self.FK_PRODUCTO_PROVEEDOR" FromRole="PF_PRODUCTO" ToRole="PF_PROVEEDOR" />
+        </EntityType>
+        <EntityType Name="PF_PROVEEDOR">
+          <Key>
+            <PropertyRef Name="ID_PROVEEDOR" />
+          </Key>
+          <Property Name="ID_PROVEEDOR" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PROV_NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PROV_CED_JURIDICA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PROV_FEC_AFILIACION" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FK_ID_SUCURSAL" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="PF_H_ENTREGAS" Relationship="Self.FK_ENTREGAS_PROVEEDOR" FromRole="PF_PROVEEDOR" ToRole="PF_H_ENTREGAS" />
+          <NavigationProperty Name="PF_PRODUCTO" Relationship="Self.FK_PRODUCTO_PROVEEDOR" FromRole="PF_PROVEEDOR" ToRole="PF_PRODUCTO" />
+          <NavigationProperty Name="PF_SUCURSAL" Relationship="Self.FK_PROVEEDOR_SUCURSAL" FromRole="PF_PROVEEDOR" ToRole="PF_SUCURSAL" />
+        </EntityType>
+        <EntityType Name="PF_ROL">
+          <Key>
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="ID_ROL" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ROL_TIPO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PF_USUARIO" Relationship="Self.FK_USUARIO_ROL" FromRole="PF_ROL" ToRole="PF_USUARIO" />
+        </EntityType>
+        <EntityType Name="PF_SUCURSAL">
+          <Key>
+            <PropertyRef Name="ID_SUCURSAL" />
+          </Key>
+          <Property Name="ID_SUCURSAL" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SUC_LOCALIZACION" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PF_PROVEEDOR" Relationship="Self.FK_PROVEEDOR_SUCURSAL" FromRole="PF_SUCURSAL" ToRole="PF_PROVEEDOR" />
+        </EntityType>
+        <EntityType Name="PF_USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USR_NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USR_APELLIDO1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USR_APELLIDO2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USR_EMAIL" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USR_PASSWORD" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FK_ID_ROL" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="PF_CARRITO" Relationship="Self.FK_CARRITO_USUARIO" FromRole="PF_USUARIO" ToRole="PF_CARRITO" />
+          <NavigationProperty Name="PF_H_ERRORES" Relationship="Self.FK_ERRORES_USUARIO" FromRole="PF_USUARIO" ToRole="PF_H_ERRORES" />
+          <NavigationProperty Name="PF_INFO_PAGO" Relationship="Self.FK_INFOPAGO_USUARIO" FromRole="PF_USUARIO" ToRole="PF_INFO_PAGO" />
+          <NavigationProperty Name="PF_ORDEN" Relationship="Self.FK_ORDEN_USUARIO" FromRole="PF_USUARIO" ToRole="PF_ORDEN" />
+          <NavigationProperty Name="PF_ROL" Relationship="Self.FK_USUARIO_ROL" FromRole="PF_USUARIO" ToRole="PF_ROL" />
+        </EntityType>
+        <Association Name="FK_CARRITO_PRODUCTO">
+          <End Role="PF_PRODUCTO" Type="Self.PF_PRODUCTO" Multiplicity="1" />
+          <End Role="PF_CARRITO" Type="Self.PF_CARRITO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_PRODUCTO">
+              <PropertyRef Name="ID_PRODUCTO" />
+            </Principal>
+            <Dependent Role="PF_CARRITO">
+              <PropertyRef Name="FK_ID_PRODUCTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CARRITO_USUARIO">
+          <End Role="PF_USUARIO" Type="Self.PF_USUARIO" Multiplicity="1" />
+          <End Role="PF_CARRITO" Type="Self.PF_CARRITO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="PF_CARRITO">
+              <PropertyRef Name="FK_ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTO_CATEGORIA">
+          <End Role="PF_CATEGORIA" Type="Self.PF_CATEGORIA" Multiplicity="1" />
+          <End Role="PF_PRODUCTO" Type="Self.PF_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_CATEGORIA">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Principal>
+            <Dependent Role="PF_PRODUCTO">
+              <PropertyRef Name="FK_ID_CATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETALLEORDEN_ORDEN">
+          <End Role="PF_ORDEN" Type="Self.PF_ORDEN" Multiplicity="1" />
+          <End Role="PF_DETALLE_ORDEN" Type="Self.PF_DETALLE_ORDEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_ORDEN">
+              <PropertyRef Name="ID_ORDEN" />
+            </Principal>
+            <Dependent Role="PF_DETALLE_ORDEN">
+              <PropertyRef Name="FK_ID_ORDEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENTREGAS_PRODUCTO">
+          <End Role="PF_PRODUCTO" Type="Self.PF_PRODUCTO" Multiplicity="1" />
+          <End Role="PF_H_ENTREGAS" Type="Self.PF_H_ENTREGAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_PRODUCTO">
+              <PropertyRef Name="ID_PRODUCTO" />
+            </Principal>
+            <Dependent Role="PF_H_ENTREGAS">
+              <PropertyRef Name="FK_ID_PRODUCTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENTREGAS_PROVEEDOR">
+          <End Role="PF_PROVEEDOR" Type="Self.PF_PROVEEDOR" Multiplicity="1" />
+          <End Role="PF_H_ENTREGAS" Type="Self.PF_H_ENTREGAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_PROVEEDOR">
+              <PropertyRef Name="ID_PROVEEDOR" />
+            </Principal>
+            <Dependent Role="PF_H_ENTREGAS">
+              <PropertyRef Name="FK_ID_PROVEEDOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ERRORES_USUARIO">
+          <End Role="PF_USUARIO" Type="Self.PF_USUARIO" Multiplicity="1" />
+          <End Role="PF_H_ERRORES" Type="Self.PF_H_ERRORES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="PF_H_ERRORES">
+              <PropertyRef Name="FK_ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INFOPAGO_METODOPAGO">
+          <End Role="PF_METODO_PAGO" Type="Self.PF_METODO_PAGO" Multiplicity="1" />
+          <End Role="PF_INFO_PAGO" Type="Self.PF_INFO_PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_METODO_PAGO">
+              <PropertyRef Name="ID_METODOPAGO" />
+            </Principal>
+            <Dependent Role="PF_INFO_PAGO">
+              <PropertyRef Name="FK_ID_METODOPAGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INFOPAGO_USUARIO">
+          <End Role="PF_USUARIO" Type="Self.PF_USUARIO" Multiplicity="1" />
+          <End Role="PF_INFO_PAGO" Type="Self.PF_INFO_PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="PF_INFO_PAGO">
+              <PropertyRef Name="FK_ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDEN_INFOPAGO">
+          <End Role="PF_INFO_PAGO" Type="Self.PF_INFO_PAGO" Multiplicity="1" />
+          <End Role="PF_ORDEN" Type="Self.PF_ORDEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_INFO_PAGO">
+              <PropertyRef Name="ID_INFOPAGO" />
+            </Principal>
+            <Dependent Role="PF_ORDEN">
+              <PropertyRef Name="FK_ID_INFOPAGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDEN_USUARIO">
+          <End Role="PF_USUARIO" Type="Self.PF_USUARIO" Multiplicity="1" />
+          <End Role="PF_ORDEN" Type="Self.PF_ORDEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="PF_ORDEN">
+              <PropertyRef Name="FK_ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTO_PROVEEDOR">
+          <End Role="PF_PROVEEDOR" Type="Self.PF_PROVEEDOR" Multiplicity="1" />
+          <End Role="PF_PRODUCTO" Type="Self.PF_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_PROVEEDOR">
+              <PropertyRef Name="ID_PROVEEDOR" />
+            </Principal>
+            <Dependent Role="PF_PRODUCTO">
+              <PropertyRef Name="FK_ID_PROVEEDOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROVEEDOR_SUCURSAL">
+          <End Role="PF_SUCURSAL" Type="Self.PF_SUCURSAL" Multiplicity="1" />
+          <End Role="PF_PROVEEDOR" Type="Self.PF_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_SUCURSAL">
+              <PropertyRef Name="ID_SUCURSAL" />
+            </Principal>
+            <Dependent Role="PF_PROVEEDOR">
+              <PropertyRef Name="FK_ID_SUCURSAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_ROL">
+          <End Role="PF_ROL" Type="Self.PF_ROL" Multiplicity="1" />
+          <End Role="PF_USUARIO" Type="Self.PF_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PF_ROL">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="PF_USUARIO">
+              <PropertyRef Name="FK_ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="STEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PF_CARRITO" EntityType="Self.PF_CARRITO" />
+          <EntitySet Name="PF_CATEGORIA" EntityType="Self.PF_CATEGORIA" />
+          <EntitySet Name="PF_DETALLE_ORDEN" EntityType="Self.PF_DETALLE_ORDEN" />
+          <EntitySet Name="PF_H_ENTREGAS" EntityType="Self.PF_H_ENTREGAS" />
+          <EntitySet Name="PF_H_ERRORES" EntityType="Self.PF_H_ERRORES" />
+          <EntitySet Name="PF_INFO_PAGO" EntityType="Self.PF_INFO_PAGO" />
+          <EntitySet Name="PF_METODO_PAGO" EntityType="Self.PF_METODO_PAGO" />
+          <EntitySet Name="PF_ORDEN" EntityType="Self.PF_ORDEN" />
+          <EntitySet Name="PF_PRODUCTO" EntityType="Self.PF_PRODUCTO" />
+          <EntitySet Name="PF_PROVEEDOR" EntityType="Self.PF_PROVEEDOR" />
+          <EntitySet Name="PF_ROL" EntityType="Self.PF_ROL" />
+          <EntitySet Name="PF_SUCURSAL" EntityType="Self.PF_SUCURSAL" />
+          <EntitySet Name="PF_USUARIO" EntityType="Self.PF_USUARIO" />
+          <AssociationSet Name="FK_CARRITO_PRODUCTO" Association="Self.FK_CARRITO_PRODUCTO">
+            <End Role="PF_PRODUCTO" EntitySet="PF_PRODUCTO" />
+            <End Role="PF_CARRITO" EntitySet="PF_CARRITO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CARRITO_USUARIO" Association="Self.FK_CARRITO_USUARIO">
+            <End Role="PF_USUARIO" EntitySet="PF_USUARIO" />
+            <End Role="PF_CARRITO" EntitySet="PF_CARRITO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTO_CATEGORIA" Association="Self.FK_PRODUCTO_CATEGORIA">
+            <End Role="PF_CATEGORIA" EntitySet="PF_CATEGORIA" />
+            <End Role="PF_PRODUCTO" EntitySet="PF_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETALLEORDEN_ORDEN" Association="Self.FK_DETALLEORDEN_ORDEN">
+            <End Role="PF_ORDEN" EntitySet="PF_ORDEN" />
+            <End Role="PF_DETALLE_ORDEN" EntitySet="PF_DETALLE_ORDEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENTREGAS_PRODUCTO" Association="Self.FK_ENTREGAS_PRODUCTO">
+            <End Role="PF_PRODUCTO" EntitySet="PF_PRODUCTO" />
+            <End Role="PF_H_ENTREGAS" EntitySet="PF_H_ENTREGAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENTREGAS_PROVEEDOR" Association="Self.FK_ENTREGAS_PROVEEDOR">
+            <End Role="PF_PROVEEDOR" EntitySet="PF_PROVEEDOR" />
+            <End Role="PF_H_ENTREGAS" EntitySet="PF_H_ENTREGAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ERRORES_USUARIO" Association="Self.FK_ERRORES_USUARIO">
+            <End Role="PF_USUARIO" EntitySet="PF_USUARIO" />
+            <End Role="PF_H_ERRORES" EntitySet="PF_H_ERRORES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INFOPAGO_METODOPAGO" Association="Self.FK_INFOPAGO_METODOPAGO">
+            <End Role="PF_METODO_PAGO" EntitySet="PF_METODO_PAGO" />
+            <End Role="PF_INFO_PAGO" EntitySet="PF_INFO_PAGO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INFOPAGO_USUARIO" Association="Self.FK_INFOPAGO_USUARIO">
+            <End Role="PF_USUARIO" EntitySet="PF_USUARIO" />
+            <End Role="PF_INFO_PAGO" EntitySet="PF_INFO_PAGO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDEN_INFOPAGO" Association="Self.FK_ORDEN_INFOPAGO">
+            <End Role="PF_INFO_PAGO" EntitySet="PF_INFO_PAGO" />
+            <End Role="PF_ORDEN" EntitySet="PF_ORDEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDEN_USUARIO" Association="Self.FK_ORDEN_USUARIO">
+            <End Role="PF_USUARIO" EntitySet="PF_USUARIO" />
+            <End Role="PF_ORDEN" EntitySet="PF_ORDEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTO_PROVEEDOR" Association="Self.FK_PRODUCTO_PROVEEDOR">
+            <End Role="PF_PROVEEDOR" EntitySet="PF_PROVEEDOR" />
+            <End Role="PF_PRODUCTO" EntitySet="PF_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROVEEDOR_SUCURSAL" Association="Self.FK_PROVEEDOR_SUCURSAL">
+            <End Role="PF_SUCURSAL" EntitySet="PF_SUCURSAL" />
+            <End Role="PF_PROVEEDOR" EntitySet="PF_PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_ROL" Association="Self.FK_USUARIO_ROL">
+            <End Role="PF_ROL" EntitySet="PF_ROL" />
+            <End Role="PF_USUARIO" EntitySet="PF_USUARIO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="STModelStoreContainer" CdmEntityContainer="STEntities">
+          <EntitySetMapping Name="PF_CARRITO">
+            <EntityTypeMapping TypeName="STModel.PF_CARRITO">
+              <MappingFragment StoreEntitySet="PF_CARRITO">
+                <ScalarProperty Name="ID_CARRITO" ColumnName="ID_CARRITO" />
+                <ScalarProperty Name="CAR_CANTIDAD" ColumnName="CAR_CANTIDAD" />
+                <ScalarProperty Name="FK_ID_USUARIO" ColumnName="FK_ID_USUARIO" />
+                <ScalarProperty Name="FK_ID_PRODUCTO" ColumnName="FK_ID_PRODUCTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PF_CATEGORIA">
+            <EntityTypeMapping TypeName="STModel.PF_CATEGORIA">
+              <MappingFragment StoreEntitySet="PF_CATEGORIA">
+                <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+                <ScalarProperty Name="CAT_TIPO" ColumnName="CAT_TIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PF_DETALLE_ORDEN">
+            <EntityTypeMapping TypeName="STModel.PF_DETALLE_ORDEN">
+              <MappingFragment StoreEntitySet="PF_DETALLE_ORDEN">
+                <ScalarProperty Name="ID_DETALLEORDEN" ColumnName="ID_DETALLEORDEN" />
+                <ScalarProperty Name="FK_ID_PRODUCTO" ColumnName="FK_ID_PRODUCTO" />
+                <ScalarProperty Name="DET_PRECIO" ColumnName="DET_PRECIO" />
+                <ScalarProperty Name="DET_CANTIDAD" ColumnName="DET_CANTIDAD" />
+                <ScalarProperty Name="DET_URL_IMAGEN" ColumnName="DET_URL_IMAGEN" />
+                <ScalarProperty Name="FK_ID_ORDEN" ColumnName="FK_ID_ORDEN" />
+                <ScalarProperty Name="FK_ID_USUARIO" ColumnName="FK_ID_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PF_H_ENTREGAS">
+            <EntityTypeMapping TypeName="STModel.PF_H_ENTREGAS">
+              <MappingFragment StoreEntitySet="PF_H_ENTREGAS">
+                <ScalarProperty Name="ID_ENTREGAS" ColumnName="ID_ENTREGAS" />
+                <ScalarProperty Name="ENT_FEC_ENTREGA" ColumnName="ENT_FEC_ENTREGA" />
+                <ScalarProperty Name="FK_ID_PRODUCTO" ColumnName="FK_ID_PRODUCTO" />
+                <ScalarProperty Name="FK_ID_PROVEEDOR" ColumnName="FK_ID_PROVEEDOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PF_H_ERRORES">
+            <EntityTypeMapping TypeName="STModel.PF_H_ERRORES">
+              <MappingFragment StoreEntitySet="PF_H_ERRORES">
+                <ScalarProperty Name="ID_ERRORES" ColumnName="ID_ERRORES" />
+                <ScalarProperty Name="ERR_FEC" ColumnName="ERR_FEC" />
+                <ScalarProperty Name="ERR_DESCRIPCION" ColumnName="ERR_DESCRIPCION" />
+                <ScalarProperty Name="FK_ID_USUARIO" ColumnName="FK_ID_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PF_INFO_PAGO">
+            <EntityTypeMapping TypeName="STModel.PF_INFO_PAGO">
+              <MappingFragment StoreEntitySet="PF_INFO_PAGO">
+                <ScalarProperty Name="ID_INFOPAGO" ColumnName="ID_INFOPAGO" />
+                <ScalarProperty Name="PAG_NUM_TARJETA" ColumnName="PAG_NUM_TARJETA" />
+                <ScalarProperty Name="PAG_DIR_FACTURACION" ColumnName="PAG_DIR_FACTURACION" />
+                <ScalarProperty Name="PAG_DIR_FACTURACION2" ColumnName="PAG_DIR_FACTURACION2" />
+                <ScalarProperty Name="PAG_TELEFONO" ColumnName="PAG_TELEFONO" />
+                <ScalarProperty Name="PAG_TOTAL" ColumnName="PAG_TOTAL" />
+                <ScalarProperty Name="FK_ID_USUARIO" ColumnName="FK_ID_USUARIO" />
+                <ScalarProperty Name="FK_ID_METODOPAGO" ColumnName="FK_ID_METODOPAGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PF_METODO_PAGO">
+            <EntityTypeMapping TypeName="STModel.PF_METODO_PAGO">
+              <MappingFragment StoreEntitySet="PF_METODO_PAGO">
+                <ScalarProperty Name="ID_METODOPAGO" ColumnName="ID_METODOPAGO" />
+                <ScalarProperty Name="METP_NOMBRE" ColumnName="METP_NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PF_ORDEN">
+            <EntityTypeMapping TypeName="STModel.PF_ORDEN">
+              <MappingFragment StoreEntitySet="PF_ORDEN">
+                <ScalarProperty Name="ID_ORDEN" ColumnName="ID_ORDEN" />
+                <ScalarProperty Name="ORD_FEC_ORDEN" ColumnName="ORD_FEC_ORDEN" />
+                <ScalarProperty Name="ORD_MONTO_TOTAL" ColumnName="ORD_MONTO_TOTAL" />
+                <ScalarProperty Name="FK_ID_INFOPAGO" ColumnName="FK_ID_INFOPAGO" />
+                <ScalarProperty Name="FK_ID_USUARIO" ColumnName="FK_ID_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PF_PRODUCTO">
+            <EntityTypeMapping TypeName="STModel.PF_PRODUCTO">
+              <MappingFragment StoreEntitySet="PF_PRODUCTO">
+                <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+                <ScalarProperty Name="PRO_NOMBRE" ColumnName="PRO_NOMBRE" />
+                <ScalarProperty Name="PRO_DESCRIPCION" ColumnName="PRO_DESCRIPCION" />
+                <ScalarProperty Name="PRO_URL_IMAGEN" ColumnName="PRO_URL_IMAGEN" />
+                <ScalarProperty Name="PRO_PRECIO" ColumnName="PRO_PRECIO" />
+                <ScalarProperty Name="PRO_CANTIDAD" ColumnName="PRO_CANTIDAD" />
+                <ScalarProperty Name="FK_ID_PROVEEDOR" ColumnName="FK_ID_PROVEEDOR" />
+                <ScalarProperty Name="FK_ID_CATEGORIA" ColumnName="FK_ID_CATEGORIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PF_PROVEEDOR">
+            <EntityTypeMapping TypeName="STModel.PF_PROVEEDOR">
+              <MappingFragment StoreEntitySet="PF_PROVEEDOR">
+                <ScalarProperty Name="ID_PROVEEDOR" ColumnName="ID_PROVEEDOR" />
+                <ScalarProperty Name="PROV_NOMBRE" ColumnName="PROV_NOMBRE" />
+                <ScalarProperty Name="PROV_CED_JURIDICA" ColumnName="PROV_CED_JURIDICA" />
+                <ScalarProperty Name="PROV_FEC_AFILIACION" ColumnName="PROV_FEC_AFILIACION" />
+                <ScalarProperty Name="FK_ID_SUCURSAL" ColumnName="FK_ID_SUCURSAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PF_ROL">
+            <EntityTypeMapping TypeName="STModel.PF_ROL">
+              <MappingFragment StoreEntitySet="PF_ROL">
+                <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+                <ScalarProperty Name="ROL_TIPO" ColumnName="ROL_TIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PF_SUCURSAL">
+            <EntityTypeMapping TypeName="STModel.PF_SUCURSAL">
+              <MappingFragment StoreEntitySet="PF_SUCURSAL">
+                <ScalarProperty Name="ID_SUCURSAL" ColumnName="ID_SUCURSAL" />
+                <ScalarProperty Name="SUC_LOCALIZACION" ColumnName="SUC_LOCALIZACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PF_USUARIO">
+            <EntityTypeMapping TypeName="STModel.PF_USUARIO">
+              <MappingFragment StoreEntitySet="PF_USUARIO">
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="USR_NOMBRE" ColumnName="USR_NOMBRE" />
+                <ScalarProperty Name="USR_APELLIDO1" ColumnName="USR_APELLIDO1" />
+                <ScalarProperty Name="USR_APELLIDO2" ColumnName="USR_APELLIDO2" />
+                <ScalarProperty Name="USR_EMAIL" ColumnName="USR_EMAIL" />
+                <ScalarProperty Name="USR_PASSWORD" ColumnName="USR_PASSWORD" />
+                <ScalarProperty Name="FK_ID_ROL" ColumnName="FK_ID_ROL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

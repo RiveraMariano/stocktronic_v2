@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Stocktronic",
+    "\\Stocktronic\\Stocktronic",
+    "\\Stocktronic\\Stocktronic\\Controllers"
   ],
+  "SelectedNode": "\\Stocktronic\\Stocktronic\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }

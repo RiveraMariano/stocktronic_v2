@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="STModelStoreContainer" CdmEntityContainer="STEntities">
+    <EntitySetMapping Name="PF_CARRITO">
+      <EntityTypeMapping TypeName="STModel.PF_CARRITO">
+        <MappingFragment StoreEntitySet="PF_CARRITO">
+          <ScalarProperty Name="ID_CARRITO" ColumnName="ID_CARRITO" />
+          <ScalarProperty Name="CAR_CANTIDAD" ColumnName="CAR_CANTIDAD" />
+          <ScalarProperty Name="FK_ID_USUARIO" ColumnName="FK_ID_USUARIO" />
+          <ScalarProperty Name="FK_ID_PRODUCTO" ColumnName="FK_ID_PRODUCTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PF_CATEGORIA">
+      <EntityTypeMapping TypeName="STModel.PF_CATEGORIA">
+        <MappingFragment StoreEntitySet="PF_CATEGORIA">
+          <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+          <ScalarProperty Name="CAT_TIPO" ColumnName="CAT_TIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PF_DETALLE_ORDEN">
+      <EntityTypeMapping TypeName="STModel.PF_DETALLE_ORDEN">
+        <MappingFragment StoreEntitySet="PF_DETALLE_ORDEN">
+          <ScalarProperty Name="ID_DETALLEORDEN" ColumnName="ID_DETALLEORDEN" />
+          <ScalarProperty Name="FK_ID_PRODUCTO" ColumnName="FK_ID_PRODUCTO" />
+          <ScalarProperty Name="DET_PRECIO" ColumnName="DET_PRECIO" />
+          <ScalarProperty Name="DET_CANTIDAD" ColumnName="DET_CANTIDAD" />
+          <ScalarProperty Name="DET_URL_IMAGEN" ColumnName="DET_URL_IMAGEN" />
+          <ScalarProperty Name="FK_ID_ORDEN" ColumnName="FK_ID_ORDEN" />
+          <ScalarProperty Name="FK_ID_USUARIO" ColumnName="FK_ID_USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PF_H_ENTREGAS">
+      <EntityTypeMapping TypeName="STModel.PF_H_ENTREGAS">
+        <MappingFragment StoreEntitySet="PF_H_ENTREGAS">
+          <ScalarProperty Name="ID_ENTREGAS" ColumnName="ID_ENTREGAS" />
+          <ScalarProperty Name="ENT_FEC_ENTREGA" ColumnName="ENT_FEC_ENTREGA" />
+          <ScalarProperty Name="FK_ID_PRODUCTO" ColumnName="FK_ID_PRODUCTO" />
+          <ScalarProperty Name="FK_ID_PROVEEDOR" ColumnName="FK_ID_PROVEEDOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PF_H_ERRORES">
+      <EntityTypeMapping TypeName="STModel.PF_H_ERRORES">
+        <MappingFragment StoreEntitySet="PF_H_ERRORES">
+          <ScalarProperty Name="ID_ERRORES" ColumnName="ID_ERRORES" />
+          <ScalarProperty Name="ERR_FEC" ColumnName="ERR_FEC" />
+          <ScalarProperty Name="ERR_DESCRIPCION" ColumnName="ERR_DESCRIPCION" />
+          <ScalarProperty Name="FK_ID_USUARIO" ColumnName="FK_ID_USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PF_INFO_PAGO">
+      <EntityTypeMapping TypeName="STModel.PF_INFO_PAGO">
+        <MappingFragment StoreEntitySet="PF_INFO_PAGO">
+          <ScalarProperty Name="ID_INFOPAGO" ColumnName="ID_INFOPAGO" />
+          <ScalarProperty Name="PAG_NUM_TARJETA" ColumnName="PAG_NUM_TARJETA" />
+          <ScalarProperty Name="PAG_DIR_FACTURACION" ColumnName="PAG_DIR_FACTURACION" />
+          <ScalarProperty Name="PAG_DIR_FACTURACION2" ColumnName="PAG_DIR_FACTURACION2" />
+          <ScalarProperty Name="PAG_TELEFONO" ColumnName="PAG_TELEFONO" />
+          <ScalarProperty Name="PAG_TOTAL" ColumnName="PAG_TOTAL" />
+          <ScalarProperty Name="FK_ID_USUARIO" ColumnName="FK_ID_USUARIO" />
+          <ScalarProperty Name="FK_ID_METODOPAGO" ColumnName="FK_ID_METODOPAGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PF_METODO_PAGO">
+      <EntityTypeMapping TypeName="STModel.PF_METODO_PAGO">
+        <MappingFragment StoreEntitySet="PF_METODO_PAGO">
+          <ScalarProperty Name="ID_METODOPAGO" ColumnName="ID_METODOPAGO" />
+          <ScalarProperty Name="METP_NOMBRE" ColumnName="METP_NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PF_ORDEN">
+      <EntityTypeMapping TypeName="STModel.PF_ORDEN">
+        <MappingFragment StoreEntitySet="PF_ORDEN">
+          <ScalarProperty Name="ID_ORDEN" ColumnName="ID_ORDEN" />
+          <ScalarProperty Name="ORD_FEC_ORDEN" ColumnName="ORD_FEC_ORDEN" />
+          <ScalarProperty Name="ORD_MONTO_TOTAL" ColumnName="ORD_MONTO_TOTAL" />
+          <ScalarProperty Name="FK_ID_INFOPAGO" ColumnName="FK_ID_INFOPAGO" />
+          <ScalarProperty Name="FK_ID_USUARIO" ColumnName="FK_ID_USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PF_PRODUCTO">
+      <EntityTypeMapping TypeName="STModel.PF_PRODUCTO">
+        <MappingFragment StoreEntitySet="PF_PRODUCTO">
+          <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+          <ScalarProperty Name="PRO_NOMBRE" ColumnName="PRO_NOMBRE" />
+          <ScalarProperty Name="PRO_DESCRIPCION" ColumnName="PRO_DESCRIPCION" />
+          <ScalarProperty Name="PRO_URL_IMAGEN" ColumnName="PRO_URL_IMAGEN" />
+          <ScalarProperty Name="PRO_PRECIO" ColumnName="PRO_PRECIO" />
+          <ScalarProperty Name="PRO_CANTIDAD" ColumnName="PRO_CANTIDAD" />
+          <ScalarProperty Name="FK_ID_PROVEEDOR" ColumnName="FK_ID_PROVEEDOR" />
+          <ScalarProperty Name="FK_ID_CATEGORIA" ColumnName="FK_ID_CATEGORIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PF_PROVEEDOR">
+      <EntityTypeMapping TypeName="STModel.PF_PROVEEDOR">
+        <MappingFragment StoreEntitySet="PF_PROVEEDOR">
+          <ScalarProperty Name="ID_PROVEEDOR" ColumnName="ID_PROVEEDOR" />
+          <ScalarProperty Name="PROV_NOMBRE" ColumnName="PROV_NOMBRE" />
+          <ScalarProperty Name="PROV_CED_JURIDICA" ColumnName="PROV_CED_JURIDICA" />
+          <ScalarProperty Name="PROV_FEC_AFILIACION" ColumnName="PROV_FEC_AFILIACION" />
+          <ScalarProperty Name="FK_ID_SUCURSAL" ColumnName="FK_ID_SUCURSAL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PF_ROL">
+      <EntityTypeMapping TypeName="STModel.PF_ROL">
+        <MappingFragment StoreEntitySet="PF_ROL">
+          <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+          <ScalarProperty Name="ROL_TIPO" ColumnName="ROL_TIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PF_SUCURSAL">
+      <EntityTypeMapping TypeName="STModel.PF_SUCURSAL">
+        <MappingFragment StoreEntitySet="PF_SUCURSAL">
+          <ScalarProperty Name="ID_SUCURSAL" ColumnName="ID_SUCURSAL" />
+          <ScalarProperty Name="SUC_LOCALIZACION" ColumnName="SUC_LOCALIZACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PF_USUARIO">
+      <EntityTypeMapping TypeName="STModel.PF_USUARIO">
+        <MappingFragment StoreEntitySet="PF_USUARIO">
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="USR_NOMBRE" ColumnName="USR_NOMBRE" />
+          <ScalarProperty Name="USR_APELLIDO1" ColumnName="USR_APELLIDO1" />
+          <ScalarProperty Name="USR_APELLIDO2" ColumnName="USR_APELLIDO2" />
+          <ScalarProperty Name="USR_EMAIL" ColumnName="USR_EMAIL" />
+          <ScalarProperty Name="USR_PASSWORD" ColumnName="USR_PASSWORD" />
+          <ScalarProperty Name="FK_ID_ROL" ColumnName="FK_ID_ROL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

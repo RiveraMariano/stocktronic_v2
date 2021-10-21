@@ -83,3 +83,8 @@ C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.csproj.CopyComplete
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.pdb
+C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\EntityFramework.dll
+C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\EntityFramework.SqlServer.dll
+C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\EntityFramework.xml
+C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\EntityFramework.SqlServer.xml
+C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.csproj.AssemblyReference.cache

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f58558a7dd4b4e99aa65fa87a7dbdc3c" Name="Diagram1">
+        <EntityTypeShape EntityType="STModel.PF_CARRITO" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="STModel.PF_CATEGORIA" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="STModel.PF_DETALLE_ORDEN" Width="1.5" PointX="12.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="STModel.PF_H_ENTREGAS" Width="1.5" PointX="8.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="STModel.PF_H_ERRORES" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="STModel.PF_INFO_PAGO" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="STModel.PF_METODO_PAGO" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="STModel.PF_ORDEN" Width="1.5" PointX="10.5" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="STModel.PF_PRODUCTO" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="STModel.PF_PROVEEDOR" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="STModel.PF_ROL" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="STModel.PF_SUCURSAL" Width="1.5" PointX="1.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="STModel.PF_USUARIO" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="STModel.FK_CARRITO_PRODUCTO" ManuallyRouted="false" />
+        <AssociationConnector Association="STModel.FK_CARRITO_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="STModel.FK_PRODUCTO_CATEGORIA" ManuallyRouted="false" />
+        <AssociationConnector Association="STModel.FK_DETALLEORDEN_ORDEN" ManuallyRouted="false" />
+        <AssociationConnector Association="STModel.FK_ENTREGAS_PRODUCTO" ManuallyRouted="false" />
+        <AssociationConnector Association="STModel.FK_ENTREGAS_PROVEEDOR" ManuallyRouted="false" />
+        <AssociationConnector Association="STModel.FK_ERRORES_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="STModel.FK_INFOPAGO_METODOPAGO" ManuallyRouted="false" />
+        <AssociationConnector Association="STModel.FK_INFOPAGO_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="STModel.FK_ORDEN_INFOPAGO" ManuallyRouted="false" />
+        <AssociationConnector Association="STModel.FK_ORDEN_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="STModel.FK_PRODUCTO_PROVEEDOR" ManuallyRouted="false" />
+        <AssociationConnector Association="STModel.FK_PROVEEDOR_SUCURSAL" ManuallyRouted="false" />
+        <AssociationConnector Association="STModel.FK_USUARIO_ROL" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
