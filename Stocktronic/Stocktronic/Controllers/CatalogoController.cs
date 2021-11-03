@@ -7,14 +7,15 @@ using System.Web.Mvc;
 
 namespace Stocktronic.Controllers
 {
-    public class HomeController : Controller
+    public class CatalogoController : Controller
     {
-        public ActionResult Index()
+
+        public ActionResult Index(int id)
         {
             try
             {
                 CatalogoModel catalogo = new CatalogoModel();
-                var productos = catalogo.ListarProductosAleatorios();
+                var productos = catalogo.ListarProductos(id);
                 return View(productos);
             }
             catch (Exception)

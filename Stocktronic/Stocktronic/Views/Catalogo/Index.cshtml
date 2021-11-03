@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<Stocktronic.Models.PF_PRODUCTO>
+
 @{
     ViewBag.Title = "Catalogo";
 }
@@ -17,7 +18,7 @@
     <div class="row justify-content-center">
         <div class="text-center">
             <!-- <img class="img-fluid" src="../images/imagen-$categoria.png" width="550" height="auto" /> -->
-            <img class="img-fluid" src="~/Images/imagen-1.png" width="550" height="auto" />
+            <img class="img-fluid" src="~/Images/imagen-@(ViewContext.RouteData.Values["id"]).png" width="550" height="auto" />
         </div>
     </div>
 
@@ -26,24 +27,27 @@
         <div class="container px-4 px-lg-5 mt-4">
             <h1 class="text-center mt-5">Explore nuestros Productos</h1>
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center">
-                <div class="product-card mb-5">
-                    <div class="badge">Nuevo</div>
-                    <div class="product-tumb">
-                        <img src="~/Images/wireless_2.png" alt="Bombillo">
-                    </div>
-                    <div class="product-details">
-                        <h4><a href="#">ColorBulb</a></h4>
-                        <p>Un bombillo de colores</p>
-                        <div class="product-bottom-details">
-                            <div class="product-price">₡1500</div>
-                            <div class="product-links">
-                                <button type="button" class="btnAdd">
-                                    <i class="fa fa-shopping-cart"></i>
-                                </button>
+                @foreach (var producto in Model)
+                {
+                    <div class="product-card mb-5">
+                        <div class="badge">Nuevo</div>
+                        <div class="product-tumb">
+                            <img src="@producto.PRO_URL_IMAGEN" alt="Imagen">
+                        </div>
+                        <div class="product-details">
+                            <h4><a href="#">@producto.PRO_NOMBRE</a></h4>
+                            <p>@producto.PRO_DESCRIPCION</p>
+                            <div class="product-bottom-details">
+                                <div class="product-price">₡@producto.PRO_PRECIO</div>
+                                <div class="product-links">
+                                    <button type="button" class="btnAdd">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
     </section>

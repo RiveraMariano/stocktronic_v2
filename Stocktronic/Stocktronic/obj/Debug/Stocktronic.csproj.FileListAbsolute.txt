@@ -51,6 +51,8 @@ C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\vbc.rsp
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\VBCSCompiler.exe
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\Antlr3.Runtime.dll
+C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\EntityFramework.dll
+C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\EntityFramework.SqlServer.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\Newtonsoft.Json.dll
@@ -62,6 +64,8 @@ C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\System.Web.WebPag
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\System.Web.WebPages.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\System.Web.WebPages.Razor.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\WebGrease.dll
+C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\EntityFramework.xml
+C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\EntityFramework.SqlServer.xml
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\System.Web.Helpers.xml
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\System.Web.Mvc.xml
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\System.Web.Optimization.xml
@@ -83,8 +87,3 @@ C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.csproj.CopyComplete
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.pdb
-C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\EntityFramework.dll
-C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\EntityFramework.SqlServer.dll
-C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\EntityFramework.xml
-C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\EntityFramework.SqlServer.xml
-C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.csproj.AssemblyReference.cache

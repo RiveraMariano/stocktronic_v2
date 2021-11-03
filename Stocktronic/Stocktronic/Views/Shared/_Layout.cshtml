@@ -29,27 +29,27 @@
         <div class="collapse navbar-collapse" id="collapse_target">
             <ul class="navbar-nav list-inline mx-auto justify-content-center">
                 <li class="nav-item mr-5">
-                    <a class="navbar-brand" href="">
-                        <img src="../images/isotipo.svg" width="20" height="20" />
+                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                        <img src="~/Images/isotipo.svg" width="20" height="20" />
                     </a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="header-link" href="">Componentes</a>
+                    <a class="header-link" href="@Url.Action("Index", "Catalogo", new { id = 1 })">Componentes</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="header-link" href="">Herramientas</a>
+                    <a class="header-link" href="@Url.Action("Index", "Catalogo", new { id = 2 })">Herramientas</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="header-link" href="">Impresoras 3D</a>
+                    <a class="header-link" href="@Url.Action("Index", "Catalogo", new { id = 3 })">Impresoras 3D</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="header-link" href="">Cortadores Láser</a>
+                    <a class="header-link" href="@Url.Action("Index", "Catalogo", new { id = 4 })">Cortadores Láser</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="header-link" href="">Raspberry Pi</a>
+                    <a class="header-link" href="@Url.Action("Index", "Catalogo", new { id = 5 })">Raspberry Pi</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="header-link" href="">Inalámbricos</a>
+                    <a class="header-link" href="@Url.Action("Index", "Catalogo", new { id = 6 })">Inalámbricos Pi</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
                     <a class="header-link" href="">
@@ -77,28 +77,6 @@
             </ul>
         </div>
     </nav>
-
-    <!--
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    -->
 
     <div>
         @RenderBody()
@@ -128,12 +106,12 @@
                             </h6>
                             <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 125px; height: 2px" />
                             <ul class="list-unstyled">
-                                <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=1">Componentes</a></li>
-                                <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=2">Herramientas</a></li>
-                                <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=3">Impresoras 3D</a></li>
-                                <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=4">Cortadores Láser</a></li>
-                                <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=5">Raspberry Pi</a></li>
-                                <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=6">Inalámbricos</a></li>
+                                <li class="mb-1"><a href="@Url.Action("Index", "Catalogo", new { id = 1 })">Componentes</a></li>
+                                <li class="mb-1"><a href="@Url.Action("Index", "Catalogo", new { id = 2 })">Herramientas</a></li>
+                                <li class="mb-1"><a href="@Url.Action("Index", "Catalogo", new { id = 3 })">Impresoras 3D</a></li>
+                                <li class="mb-1"><a href="@Url.Action("Index", "Catalogo", new { id = 4 })">Cortadores Láser</a></li>
+                                <li class="mb-1"><a href="@Url.Action("Index", "Catalogo", new { id = 5 })">Raspberry Pi</a></li>
+                                <li class="mb-1"><a href="@Url.Action("Index", "Catalogo", new { id = 6 })">Inalámbricos</a></li>
                             </ul>
                         </div>
 

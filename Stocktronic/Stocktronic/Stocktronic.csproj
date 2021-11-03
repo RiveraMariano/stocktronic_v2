@@ -129,10 +129,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CatalogoModel.cs" />
     <Compile Include="Models\ModeloStocktronic.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -295,7 +297,7 @@
     <Content Include="vendor\bootstrap\js\bootstrap.min.js.map" />
     <Content Include="vendor\jquery\jquery.min.map" />
     <Content Include="vendor\jquery\jquery.slim.min.map" />
-    <Content Include="Views\Home\Catalogo.cshtml" />
+    <Content Include="Views\Catalogo\Index.cshtml" />
     <Content Include="Views\Home\Checkout.cshtml" />
     <Content Include="Views\Home\Confirmacion.cshtml" />
     <Content Include="Views\Home\FormActualizarProducto.cshtml" />
@@ -303,7 +305,7 @@
     <Content Include="Views\Home\FormAgregarProducto.cshtml" />
     <Content Include="Views\Home\FormAgregarUsuario.cshtml" />
     <Content Include="Views\Home\Historial.cshtml" />
-    <Content Include="Views\Home\Inicio.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\TablaEntregas.cshtml" />
     <Content Include="Views\Home\TablaErrores.cshtml" />
     <Content Include="Views\Home\TablaProductos.cshtml" />
