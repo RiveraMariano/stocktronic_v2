@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<Stocktronic.Models.OrdenInfoPagoJoin>
+
 @{
     ViewBag.Title = "Historial";
 }
@@ -35,18 +36,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="alert text-center" role="alert">
-                                <td scope="row" name="identificador">23452345</td>
-                                <td>Mastercard</td>
-                                <td>35424352556</td>
-                                <td>23/6/45</td>
-                                <td>₡50000</td>
-                                <td>
-                                    <button data-id="23452345" type="button" class="btn btn-sm btnDetalles" data-toggle="modal" data-target="#modalDetalles">
-                                        Detalles
-                                    </button>
-                                </td>
-                            </tr>
+                            @foreach (var orden in Model)
+                            {
+                                <tr class="alert text-center" role="alert">
+                                    <td scope="row" name="identificador">@orden.ID_ORDEN</td>
+                                    <td>@orden.METP_NOMBRE</td>
+                                    <td>@orden.PAG_NUM_TARJETA</td>
+                                    <td>@orden.ORD_FEC_ORDEN</td>
+                                    <td>₡@orden.ORD_MONTO_TOTAL</td>
+                                    <td>
+                                        <button data-id="@orden.ID_ORDEN" type="button" class="btn btn-sm btnDetalles" data-toggle="modal" data-target="#modalDetalles">
+                                            Detalles
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -54,14 +58,16 @@
         </div>
     </div>
 
-    <!-- Si todavia no hay compras
-    <div id="outer" class="container mt-5">
-        <div id="inner">
-            <img class="img-responsive" src="../images/isotipoDark.svg" alt="logo" />
-            <h1 class="text-center mt-3">Historial de Compras</h1>
-            <p class="text-center">Aún no has realizado compras</p>
+    @if (Model.Count() == 0)
+    {
+        <div id="outer" class="container mt-5">
+            <div id="inner">
+                <img class="img-responsive" src="../images/isotipoDark.svg" alt="logo" />
+                <h1 class="text-center mt-3">Historial de Compras</h1>
+                <p class="text-center">Aún no has realizado compras</p>
+            </div>
         </div>
-    </div> -->
+    }
 
     <!-- Modal -->
     <div class="modal fade" id="modalDetalles" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

@@ -132,6 +132,7 @@
     <Compile Include="Controllers\CarritoController.cs" />
     <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdenesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -153,6 +154,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloStocktronic.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrdenesModel.cs" />
+    <Compile Include="Models\OrdenInfoPagoJoin.cs" />
     <Compile Include="Models\PF_CARRITO.cs">
       <DependentUpon>ModeloStocktronic.tt</DependentUpon>
     </Compile>
@@ -309,7 +312,7 @@
     <Content Include="Views\Home\FormActualizarUsuario.cshtml" />
     <Content Include="Views\Home\FormAgregarProducto.cshtml" />
     <Content Include="Views\Home\FormAgregarUsuario.cshtml" />
-    <Content Include="Views\Home\Historial.cshtml" />
+    <Content Include="Views\Ordenes\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\TablaEntregas.cshtml" />
     <Content Include="Views\Home\TablaErrores.cshtml" />
