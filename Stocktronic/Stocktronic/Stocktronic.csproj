@@ -129,11 +129,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CarritoController.cs" />
     <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CarritoModel.cs" />
+    <Compile Include="Models\CarritoProductoJoin.cs" />
     <Compile Include="Models\CatalogoModel.cs" />
     <Compile Include="Models\ModeloStocktronic.Context.cs">
       <AutoGen>True</AutoGen>
@@ -237,6 +240,8 @@
       <DependentUpon>ModeloStocktronic.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\carritoSA.js" />
+    <Content Include="Scripts\carritoSP.js" />
     <Content Include="Scripts\checkout.js" />
     <Content Include="Scripts\index.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -314,6 +319,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Carrito\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

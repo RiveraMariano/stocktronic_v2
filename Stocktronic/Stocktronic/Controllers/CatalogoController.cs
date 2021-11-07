@@ -24,5 +24,19 @@ namespace Stocktronic.Controllers
             }
         }
 
+        public ActionResult InsertarProducto(int id)
+        {
+            try
+            {
+                CatalogoModel catalogo = new CatalogoModel();
+                var productos = catalogo.InsertarProducto(id);
+                return View(productos);
+            }
+            catch (Exception)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
+        }
+
     }
 }

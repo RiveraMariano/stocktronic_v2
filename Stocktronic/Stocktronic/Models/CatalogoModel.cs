@@ -28,5 +28,19 @@ namespace Stocktronic.Models
             }
         }
 
+        public string InsertarProducto(int idProducto)
+        {
+            using (var contexto = new STEntities())
+            {
+                PF_CARRITO carrito = new PF_CARRITO();
+                carrito.CAR_CANTIDAD = 1;
+                carrito.FK_ID_USUARIO = 1;
+                carrito.FK_ID_PRODUCTO = idProducto;
+                contexto.PF_CARRITO.Add(carrito);
+                contexto.SaveChanges();
+                return "Registro de dispositivo exitoso";
+            }
+        }
+
     }
 }

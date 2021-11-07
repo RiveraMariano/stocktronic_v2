@@ -40,7 +40,7 @@
                             <div class="product-bottom-details">
                                 <div class="product-price">₡@producto.PRO_PRECIO</div>
                                 <div class="product-links">
-                                    <button type="button" class="btnAdd">
+                                    <button type="button" class="btnAdd" onclick="addCart(@producto.PRO_NOMBRE)">
                                         <i class="fa fa-shopping-cart"></i>
                                     </button>
                                 </div>
@@ -54,6 +54,8 @@
 
     <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/Scripts/carritoSA.js"></script>
+    <script src="~/Scripts/carritoSP.js"></script>
 
 
     <!-- Usuful scripts? I think we could delete some, try deleting them one by one hehe -->
