@@ -243,8 +243,8 @@
       <DependentUpon>ModeloStocktronic.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\carritoSA.js" />
-    <Content Include="Scripts\carritoSP.js" />
+    <Content Include="Scripts\NotificacionesCatalogo.js" />
+    <Content Include="Scripts\AsincronoCatalogo.js" />
     <Content Include="Scripts\checkout.js" />
     <Content Include="Scripts\index.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
