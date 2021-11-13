@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<Stocktronic.Models.CarritoProductoJoin>
+
 @{
     ViewBag.Title = "Checkout";
 }
@@ -19,13 +20,17 @@
 
                 <!-- First section -->
                 <form id="formCheckout" action="">
+
                     <div class="products">
                         <h3 class="title">Checkout</h3>
-                        <div class="item">
-                            <span class="price">₡2000</span>
-                            <p class="item-name">ColorBulb 3</p>
-                            <p class="item-description">Un bombillo de colores</p>
-                        </div>
+                        @foreach (var producto in Model)
+                        {
+                            <div class="item">
+                                <span class="price">₡@producto.PRO_PRECIO</span>
+                                <p class="item-name">@producto.PRO_NOMBRE @producto.CAR_CANTIDAD</p>
+                                <p class="item-description">@producto.PRO_DESCRIPCION</p>
+                            </div>
+                        }
                         <div class="total">Total<span class="price">₡3000</span></div>
                     </div>
 

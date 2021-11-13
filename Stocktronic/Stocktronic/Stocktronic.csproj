@@ -131,6 +131,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CarritoController.cs" />
     <Compile Include="Controllers\CatalogoController.cs" />
+    <Compile Include="Controllers\ComprarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OrdenesController.cs" />
@@ -307,7 +308,7 @@
     <Content Include="vendor\jquery\jquery.min.map" />
     <Content Include="vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Catalogo\Index.cshtml" />
-    <Content Include="Views\Home\Checkout.cshtml" />
+    <Content Include="Views\Comprar\Index.cshtml" />
     <Content Include="Views\Home\Confirmacion.cshtml" />
     <Content Include="Views\Home\FormActualizarProducto.cshtml" />
     <Content Include="Views\Home\FormActualizarUsuario.cshtml" />
