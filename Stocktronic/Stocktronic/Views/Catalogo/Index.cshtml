@@ -40,7 +40,7 @@
                             <div class="product-bottom-details">
                                 <div class="product-price">₡@producto.PRO_PRECIO</div>
                                 <div class="product-links">
-                                    <button type="button" data-id="@producto.ID_PRODUCTO" class="btnAdd" onclick="addCart('@(producto.PRO_NOMBRE)')">
+                                    <button type="button" data-id="@producto.ID_PRODUCTO" class="btnAdd" onclick="AgregarCarrito(@producto.ID_PRODUCTO, '@(producto.PRO_NOMBRE)')">
                                         <i class="fa fa-shopping-cart"></i>
                                     </button>
                                 </div>
@@ -54,9 +54,7 @@
 
     <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="~/Scripts/NotificacionesCatalogo.js"></script>
-    <script src="~/Scripts/AsincronoCatalogo.js"></script>
-
+    <script src="~/Funciones/Catalogo.js"></script>
 
     <!-- Usuful scripts? I think we could delete some, try deleting them one by one hehe -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

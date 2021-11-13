@@ -40,8 +40,7 @@
                                             <div class="col-6">
                                                 <ul class="pagination justify-content-end set-quantity">
                                                     <li class="page-item border">
-                                                        <button type="button" onclick=""
-                                                                data-id="" data-filter="" class="page-link btnMinus">
+                                                        <button type="button" onclick="ReducirCantidad(@producto.ID_CARRITO, @producto.CAR_CANTIDAD)" class="page-link btnMinus">
                                                             <i class="fa fa-minus"></i>
                                                         </button>
                                                     </li>
@@ -49,8 +48,7 @@
                                                         <input class="page-link itemval" type="text" value="@producto.CAR_CANTIDAD" disabled />
                                                     </li>
                                                     <li class="page-item border">
-                                                        <button type="button" onclick=""
-                                                                data-id="" data-filter="" class="page-link btnPlus">
+                                                        <button type="button" onclick="AumentarCantidad(@producto.ID_CARRITO, @producto.CAR_CANTIDAD)" class="page-link btnPlus">
                                                             <i class="fa fa-plus"></i>
                                                         </button>
                                                     </li>
@@ -61,8 +59,7 @@
                                         <div class="row">
                                             <div class="col-8 d-flex justify-content-between remove">
                                                 <div class="product-links">
-                                                    <button data-id="" type="button" class="btnDelete"
-                                                            onclick="">
+                                                    <button type="button" onclick="EliminarProducto(@producto.ID_CARRITO)" class="btnDelete">
                                                         <i class="fa fa-trash"></i> Eliminar Producto
                                                     </button>
                                                 </div>
@@ -108,24 +105,21 @@
         </div>
     </div>
 
-    @if(Model.Count() == 0)
+    @if (Model.Count() == 0)
     {
-    <div id="outer" class="container">
-        <div id="inner">
-            <img class="img-responsive" src="~/Images/isotipoDark.svg" alt="logo" />
-            <h1 class="text-center mt-3">Carrito de Compras</h1>
-            <p class="text-center">No has agregado ningún artículo</p>
-            <a class="d-flex justify-content-center fs" href="inicio.php">Empecemos!</a>
+        <div id="outer" class="container">
+            <div id="inner">
+                <img class="img-responsive" src="~/Images/isotipoDark.svg" alt="logo" />
+                <h1 class="text-center mt-3">Carrito de Compras</h1>
+                <p class="text-center">No has agregado ningún artículo</p>
+                <a class="d-flex justify-content-center fs" href="inicio.php">Empecemos!</a>
+            </div>
         </div>
-    </div>
     }
 
     <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../scripts/carritoSA.js"></script>
-
-    <!-- This one call the ajax to add carrito -->
-    <script src="../scripts/carritoSP.js"></script>
+    <script src="~/Funciones/Carrito.js"></script>
 
 </body>
 

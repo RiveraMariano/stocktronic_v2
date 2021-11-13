@@ -24,5 +24,50 @@ namespace Stocktronic.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult ReducirCantidad(int idCarrito)
+        {
+            try
+            {
+                CarritoModel carrito = new CarritoModel();
+                var productos = carrito.ReducirCantidad(idCarrito);
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                return Json(true, JsonRequestBehavior.DenyGet);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult AumentarCantidad(int idCarrito)
+        {
+            try
+            {
+                CarritoModel carrito = new CarritoModel();
+                var productos = carrito.AumentarCantidad(idCarrito);
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                return Json(true, JsonRequestBehavior.DenyGet);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult EliminarProducto(int idCarrito)
+        {
+            try
+            {
+                CarritoModel carrito = new CarritoModel();
+                var productos = carrito.EliminarProducto(idCarrito);
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                return Json(true, JsonRequestBehavior.DenyGet);
+            }
+        }
+
     }
 }

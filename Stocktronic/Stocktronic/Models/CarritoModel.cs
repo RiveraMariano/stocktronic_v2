@@ -41,5 +41,47 @@ namespace Stocktronic.Models
             }
         }
 
+        public Boolean ReducirCantidad(int idCarrito)
+        {
+            using (var contexto = new STEntities())
+            {
+                var producto = (from x in contexto.PF_CARRITO
+                                where x.ID_CARRITO == idCarrito
+                                select x).FirstOrDefault();
+
+                producto.CAR_CANTIDAD = producto.CAR_CANTIDAD - 1;
+                contexto.SaveChanges();
+                return true;
+            }
+        }
+
+        public Boolean AumentarCantidad(int idCarrito)
+        {
+            using (var contexto = new STEntities())
+            {
+                var producto = (from x in contexto.PF_CARRITO
+                                where x.ID_CARRITO == idCarrito
+                                select x).FirstOrDefault();
+
+                producto.CAR_CANTIDAD = producto.CAR_CANTIDAD + 1;
+                contexto.SaveChanges();
+                return true;
+            }
+        }
+
+        public Boolean EliminarProducto(int idCarrito)
+        {
+            using (var contexto = new STEntities())
+            {
+                var producto = (from x in contexto.PF_CARRITO
+                                where x.ID_CARRITO == idCarrito
+                                select x).FirstOrDefault();
+
+                contexto.PF_CARRITO.Remove(producto);
+                contexto.SaveChanges();
+                return true;
+            }
+        }
+
     }
 }
