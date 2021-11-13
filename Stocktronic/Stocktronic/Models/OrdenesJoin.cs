@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Stocktronic.Models
 {
-    public class OrdenInfoPagoJoin
+    public class OrdenesJoin
     {
         public long ID_ORDEN { get; set; }
         public DateTime ORD_FEC_ORDEN { get; set; }

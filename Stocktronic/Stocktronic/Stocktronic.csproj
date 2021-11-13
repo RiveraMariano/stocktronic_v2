@@ -132,6 +132,7 @@
     <Compile Include="Controllers\CarritoController.cs" />
     <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\ComprarController.cs" />
+    <Compile Include="Controllers\ConfirmacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OrdenesController.cs" />
@@ -141,6 +142,9 @@
     <Compile Include="Models\CarritoModel.cs" />
     <Compile Include="Models\CarritoProductoJoin.cs" />
     <Compile Include="Models\CatalogoModel.cs" />
+    <Compile Include="Models\ConfirmacionJoin.cs" />
+    <Compile Include="Models\ConfirmacionModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ModeloStocktronic.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -157,7 +161,7 @@
       <DependentUpon>ModeloStocktronic.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\OrdenesModel.cs" />
-    <Compile Include="Models\OrdenInfoPagoJoin.cs" />
+    <Compile Include="Models\OrdenesJoin.cs" />
     <Compile Include="Models\PF_CARRITO.cs">
       <DependentUpon>ModeloStocktronic.tt</DependentUpon>
     </Compile>
@@ -258,7 +262,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\loginSP.js" />
+    <Content Include="Funciones\Login.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Styles\carrito.css" />
     <Content Include="Styles\catalogo.css" />
@@ -309,7 +313,7 @@
     <Content Include="vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Catalogo\Index.cshtml" />
     <Content Include="Views\Comprar\Index.cshtml" />
-    <Content Include="Views\Home\Confirmacion.cshtml" />
+    <Content Include="Views\Confirmacion\Index.cshtml" />
     <Content Include="Views\Home\FormActualizarProducto.cshtml" />
     <Content Include="Views\Home\FormActualizarUsuario.cshtml" />
     <Content Include="Views\Home\FormAgregarProducto.cshtml" />

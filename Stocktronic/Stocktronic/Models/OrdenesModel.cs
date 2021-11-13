@@ -8,7 +8,7 @@ namespace Stocktronic.Models
     public class OrdenesModel
     {
 
-        public List<OrdenInfoPagoJoin> ListarOrdenes()
+        public List<OrdenesJoin> ListarOrdenes()
         {
             using (var contexto = new STEntities())
             {
@@ -27,10 +27,10 @@ namespace Stocktronic.Models
                                   METP_NOMBRE = z.METP_NOMBRE,
                               }).ToList();
 
-                List<OrdenInfoPagoJoin> listaOrdenes = new List<OrdenInfoPagoJoin>();
+                List<OrdenesJoin> listaOrdenes = new List<OrdenesJoin>();
                 foreach (var producto in ordenes)
                 {
-                    var innerJoin = new OrdenInfoPagoJoin();
+                    var innerJoin = new OrdenesJoin();
                     innerJoin.ID_ORDEN = producto.ID_ORDEN;
                     innerJoin.ORD_FEC_ORDEN = producto.ORD_FEC_ORDEN;
                     innerJoin.ORD_MONTO_TOTAL = producto.ORD_MONTO_TOTAL;

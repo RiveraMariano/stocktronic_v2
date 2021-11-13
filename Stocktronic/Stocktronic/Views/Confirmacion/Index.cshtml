@@ -1,4 +1,5 @@
-﻿
+﻿@model Stocktronic.Models.ConfirmacionJoin
+
 @{
     ViewBag.Title = "Confirmacion";
 }
@@ -22,16 +23,19 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <div class="py-2"><span class="d-block text-muted mb-2">Fec. Orden</span><span>27/7/21</span></div>
+                                            <div class="py-2"><span class="d-block text-muted mb-2">Fec. Orden</span><span>@Model.ORD_FEC_ORDEN</span></div>
                                         </td>
                                         <td>
-                                            <div class="py-2"><span class="d-block text-muted mb-2">No. Orden</span><span>46523</span> </div>
+                                            <div class="py-2"><span class="d-block text-muted mb-2">No. Orden</span><span>@Model.ID_ORDEN</span> </div>
                                         </td>
                                         <td>
-                                            <div class="py-2"><span class="d-block text-muted mb-2">Método Pago</span><span>Mastercard</span></div>
+                                            <div class="py-2"><span class="d-block text-muted mb-2">Método Pago</span><span>@Model.METP_NOMBRE</span></div>
                                         </td>
                                         <td>
-                                            <div class="py-2"><span class="d-block text-muted mb-2">Dir. Facturación</span><span>San José, Curridabat</span></div>
+                                            <div class="py-2">
+                                                <span class="d-block text-muted mb-2">Dir. Facturación</span>
+                                                <span>@Model.PAG_DIR_FACTURACION, @Model.PAG_DIR_FACTURACION2</span>
+                                            </div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -94,6 +98,3 @@
         </div>
     </div>
 </body>
-
-<!-- Quitar Footer a esto, esto no tenia -->
-
