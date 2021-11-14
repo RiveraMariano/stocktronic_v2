@@ -1,4 +1,5 @@
-﻿
+﻿@model Stocktronic.Models.PF_USUARIO
+
 @{
     ViewBag.Title = "FormActualizarUsuario";
 }
@@ -14,7 +15,7 @@
             <div class="container">
 
                 <div class="block-heading">
-                    <h2>Agregar Usuario</h2>
+                    <h2>Actualizar Usuario</h2>
                 </div>
 
                 <!-- Begin Form -->
@@ -24,27 +25,27 @@
                         <div class="row">
                             <div class="form-group col-sm-6">
                                 <label id="idVal">ID Usuario</label>
-                                <input id="idUsuario" name="idUsuario" disabled type="text" class="form-control" placeholder="ID" value="1" required>
+                                <input id="idUsuario" name="idUsuario" disabled type="text" class="form-control" placeholder="ID" value="@Model.ID_USUARIO" required>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label id="nomVal">Nombre</label>
-                                <input id="nombre" name="nombre" maxlength="20" type="text" class="form-control" placeholder="Nombre" value="Mariano" required>
+                                <input id="nombre" name="nombre" maxlength="20" type="text" class="form-control" placeholder="Nombre" value="@Model.USR_NOMBRE" required>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label id="appVal">Primer Apellido</label>
-                                <input id="apellido1" name="apellido1" maxlength="20" type="text" class="form-control" placeholder="Primer Apellido" value="Rivera" required>
+                                <input id="apellido1" name="apellido1" maxlength="20" type="text" class="form-control" placeholder="Primer Apellido" value="@Model.USR_APELLIDO1" required>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label id="app2Val">Segundo Apellido</label>
-                                <input id="apellido2" name="apellido2" maxlength="20" type="text" class="form-control" placeholder="Segundo Apellido" value="Castillo" required>
+                                <input id="apellido2" name="apellido2" maxlength="20" type="text" class="form-control" placeholder="Segundo Apellido" value="@Model.USR_APELLIDO2" required>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label id="emailVal">Correo Electrónico</label>
-                                <input id="email" name="email" type="email" maxlength="80" class="form-control" placeholder="Correo Electrónico" value="mariano@stocktronic.com" required>
+                                <input id="email" name="email" type="email" maxlength="80" class="form-control" placeholder="Correo Electrónico" value="@Model.USR_EMAIL" required>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label id="passVal">Contraseña</label>
-                                <input id="password" name="password" type="password" maxlength="15" class="form-control" placeholder="Contraseña" value="123456" required>
+                                <input id="password" name="password" type="password" maxlength="15" class="form-control" placeholder="Contraseña" value="@Model.USR_PASSWORD" required>
                             </div>
 
                             <div class="form-group col-sm-12">
@@ -57,7 +58,7 @@
 
                                 <div class="row">
                                     <div class="form-group col-sm-6">
-                                        <a href="tablaUsuarios.php"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
+                                        <a href="@Url.Action("Index", "Usuarios")"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <button id="btnUpdate" type="submit" class="btn btn-block">Actualizar usuario</button>

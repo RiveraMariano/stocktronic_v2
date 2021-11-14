@@ -1,6 +1,7 @@
-﻿
+﻿@model IEnumerable<Stocktronic.Models.UsuariosJoin>
+
 @{
-    ViewBag.Title = "TablaErrores";
+    ViewBag.Title = "TablaUsuarios";
 }
 
 <head>
@@ -16,7 +17,8 @@
     <div class="container header-top">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mt-5">
-                <h2 class="heading-section">Historial Errores</h2>
+                <h2 class="heading-section">Lista de usuarios</h2>
+                <a href="formUserInsert.php"><button class="btn btn-primary mt-3 mb-4">Agregar Usuario</button></a>
             </div>
         </div>
         <div class="row">
@@ -26,24 +28,35 @@
                         <thead class="thead-dark">
                             <tr class="text-center">
                                 <th>#</th>
-                                <th>Fec. Errores</th>
-                                <th>Descripción</th>
-                                <th>Usuario</th>
+                                <th>Nombre Completo</th>
+                                <th>Correo electrónico</th>
+                                <th>Tipo de Usuario</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="text-center">
-                                <th>01</th>
-                                <td scope="row">12/7/23</td>
-                                <td>Error al insertar usuario</td>
-                                <td>Mariano</td>
-                            </tr>
+                            @foreach (var usuario in Model)
+                            {
+                                <tr class="text-center">
+                                    <th>@usuario.ID_USUARIO</th>
+                                    <td scope=row>@usuario.USR_NOMBRE @usuario.USR_APELLIDO1 @usuario.USR_APELLIDO2</td>
+                                    <td>@usuario.USR_EMAIL</td>
+                                    <td>@usuario.ROL_TIPO</td>
+                                    <td class="text-center">
+                                        <a href="@Url.Action("ActualizarUsuario", "Usuarios", new { idUsuario = usuario.ID_USUARIO })">
+                                            <button class="btn btn-success btn-md">Actualizar</button>
+                                        </a>
+                                        <button data-id="$idUsuario" type="button" class="btn btn-danger btn-md btnDelete">Eliminar</button>
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

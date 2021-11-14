@@ -1,6 +1,7 @@
-﻿
+﻿@model IEnumerable<Stocktronic.Models.ErroresJoin>
+
 @{
-    ViewBag.Title = "TablaUsuarios";
+    ViewBag.Title = "TablaErrores";
 }
 
 <head>
@@ -16,8 +17,7 @@
     <div class="container header-top">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mt-5">
-                <h2 class="heading-section">Lista de usuarios</h2>
-                <a href="formUserInsert.php"><button class="btn btn-primary mt-3 mb-4">Agregar Usuario</button></a>
+                <h2 class="heading-section">Historial Errores</h2>
             </div>
         </div>
         <div class="row">
@@ -27,30 +27,27 @@
                         <thead class="thead-dark">
                             <tr class="text-center">
                                 <th>#</th>
-                                <th>Nombre Completo</th>
-                                <th>Correo electrónico</th>
-                                <th>Tipo de Usuario</th>
-                                <th>Acciones</th>
+                                <th>Fec. Errores</th>
+                                <th>Descripción</th>
+                                <th>Usuario</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="text-center">
-                                <th>7</th>
-                                <td scope=row>Mariano Rivera Castillo</td>
-                                <td>mariano@stocktronic.com</td>
-                                <td>Administrador</td>
-                                <td class="text-center">
-                                    <a href="formUserUpdate.php?q=$idUsuario"><button class="btn btn-success btn-md">Actualizar</button></a>
-                                    <button data-id="$idUsuario" type="button" class="btn btn-danger btn-md btnDelete">Eliminar</button>
-                                </td>
-                            </tr>
+                            @foreach (var error in Model)
+                            {
+                                <tr class="text-center">
+                                    <th>@error.ID_ERRORES</th>
+                                    <td scope="row">@error.ERR_FEC</td>
+                                    <td>@error.ERR_DESCRIPCION</td>
+                                    <td>@error.USR_NOMBRE</td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-
 
     <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

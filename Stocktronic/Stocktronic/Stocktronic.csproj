@@ -133,9 +133,11 @@
     <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\ComprarController.cs" />
     <Compile Include="Controllers\ConfirmacionController.cs" />
+    <Compile Include="Controllers\ErroresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OrdenesController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -147,6 +149,8 @@
     <Compile Include="Models\ConfirmacionModel.cs" />
     <Compile Include="Models\DetalleOrdenModel.cs" />
     <Compile Include="Models\DetalleProductoJoin.cs" />
+    <Compile Include="Models\ErroresJoin.cs" />
+    <Compile Include="Models\ErroresModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MetodoPagoModel.cs" />
     <Compile Include="Models\ModeloStocktronic.Context.cs">
@@ -205,6 +209,8 @@
     <Compile Include="Models\PF_USUARIO.cs">
       <DependentUpon>ModeloStocktronic.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UsuariosJoin.cs" />
+    <Compile Include="Models\UsuariosModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -320,15 +326,15 @@
     <Content Include="Views\Comprar\Index.cshtml" />
     <Content Include="Views\Confirmacion\Index.cshtml" />
     <Content Include="Views\Home\FormActualizarProducto.cshtml" />
-    <Content Include="Views\Home\FormActualizarUsuario.cshtml" />
+    <Content Include="Views\Usuarios\ActualizarUsuario.cshtml" />
     <Content Include="Views\Home\FormAgregarProducto.cshtml" />
     <Content Include="Views\Home\FormAgregarUsuario.cshtml" />
     <Content Include="Views\Ordenes\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\TablaEntregas.cshtml" />
-    <Content Include="Views\Home\TablaErrores.cshtml" />
+    <Content Include="Views\Errores\Index.cshtml" />
     <Content Include="Views\Home\TablaProductos.cshtml" />
-    <Content Include="Views\Home\TablaUsuarios.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
