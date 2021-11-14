@@ -1,7 +1,7 @@
 /* This .js file is used in checkout.php it's function is to prevent the user from inserting invalid information */
 
 // Bind the "Metodo Pago" into a variable
-let selectMetodo = document.getElementById('selectMet'); 
+let selectMetodo = document.getElementById('selectMet');
 
 // Bind the "Número Tarjeta" label and input into a variables
 const pTarjeta = document.getElementById('tarjetaVal');
@@ -18,7 +18,7 @@ let inputDir1 = document.getElementById('dir1');
 // Bind the "Dirección Línea 2" label and input into a variables
 const pDir2 = document.getElementById('dir2Val');
 let inputDir2 = document.getElementById('dir2');
- 
+
 // Bind the "Telefono" label and input into a variables
 const pTel = document.getElementById('telVal');
 let inputTel = document.getElementById('tel');
@@ -50,7 +50,7 @@ inputCod.addEventListener('change', getValueCod);
 $(document).ready(function () {
     $('#btnBuy').attr('disabled', true);
     $('input').keyup(function () {
-        if (inputTarjeta.value.trim().length == 16 && inputCVC.value.trim().length == 3 && inputDir1.value.trim().length >= 5 
+        if (inputTarjeta.value.trim().length == 16 && inputCVC.value.trim().length == 3 && inputDir1.value.trim().length >= 5
             && inputDir2.value.trim().length >= 5 && inputTel.value.trim().length == 8 && inputCod.value.trim().length == 5) {
             $('#btnBuy').attr('disabled', false);
         } else {
@@ -236,8 +236,8 @@ function getValueCod(e) {
     }
 }
 
-// This function is called when a button with the id btnBuy is clicked
-$("#btnBuy").click(function () {
+// Luego corregir metodoPago
+function RealizarCompra(total, idUsuario, idMetodoPago) {
     // First it sends a pop-up to the user
     Swal.fire({
         icon: 'info',
@@ -255,13 +255,15 @@ $("#btnBuy").click(function () {
             // The AJAX is called
             $.ajax({
                 type: "GET",
-                url: "../pages/infoPagoSP/insertInfoPago.php",
+                url: "/Comprar/RealizarCompra",
                 data: {
-                    metodoPago: selectMetodo.value,
                     numTarjeta: inputTarjeta.value,
-                    dir1: inputDir1.value,
-                    dir2: inputDir2.value,
+                    dirFact1: inputDir1.value,
+                    dirFact2: inputDir2.value,
                     telefono: inputTel.value,
+                    total: total,
+                    idUsuario: idUsuario,
+                    idMetodoPago: idMetodoPago,
                 },
                 // If it succeded then it sends a pop-up to the user
                 success: function (data) {
@@ -291,12 +293,12 @@ $("#btnBuy").click(function () {
                             clearInterval(timerInterval)
                         }
                     }), 3000);
-                    // After 3s the page is redirected to confirmacion.php
+                    // After 3s the page is redirected to Confirmacion/Index.cshtml
                     setTimeout(function () {
-                        window.location = 'confirmacion.php';
+                        window.location = '/Confirmacion/Index';
                     }, 3000);
                 },
             });
         }
     });
-});
+}

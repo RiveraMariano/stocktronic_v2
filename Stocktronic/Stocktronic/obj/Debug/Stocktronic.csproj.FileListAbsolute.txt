@@ -1,8 +1,7 @@
-C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\csc.exe
-C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\Stocktronic.dll.config
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\Stocktronic.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\Stocktronic.pdb
+C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\csc.exe
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\csc.exe.config
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\csc.rsp
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\csi.exe
@@ -11,6 +10,7 @@ C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\csi.rsp
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\roslyn\Microsoft.CSharp.Core.targets
@@ -87,4 +87,3 @@ C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.csproj.CopyComplete
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.pdb
-C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.csproj.AssemblyReference.cache

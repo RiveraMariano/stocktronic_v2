@@ -24,5 +24,13 @@ namespace Stocktronic.Controllers
             }
         }
 
+        [ChildActionOnly]
+        public ActionResult ListarDetallesOrden(int idOrden)
+        {
+            DetalleOrdenModel detalleOrden = new DetalleOrdenModel();
+            var detallesOrden = detalleOrden.ListarDetallesOrden(idOrden);
+            return PartialView("~/Views/Shared/_ListaDetalleOrden.cshtml", detallesOrden);
+        }
+
     }
 }

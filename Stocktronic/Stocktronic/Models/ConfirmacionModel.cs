@@ -18,6 +18,7 @@ namespace Stocktronic.Models
                                     join z in contexto.PF_METODO_PAGO
                                     on y.FK_ID_METODOPAGO equals z.ID_METODOPAGO
                                     where x.FK_ID_USUARIO == idUsuario
+                                    orderby x.ID_ORDEN descending
                                     select new
                                     {
                                         ID_ORDEN = x.ID_ORDEN,
@@ -27,7 +28,7 @@ namespace Stocktronic.Models
                                         PAG_DIR_FACTURACION = y.PAG_DIR_FACTURACION,
                                         PAG_DIR_FACTURACION2 = y.PAG_DIR_FACTURACION2,
                                         METP_NOMBRE = z.METP_NOMBRE,
-                                    }).LastOrDefault();
+                                    }).FirstOrDefault();
 
 
                 var innerJoin = new ConfirmacionJoin();

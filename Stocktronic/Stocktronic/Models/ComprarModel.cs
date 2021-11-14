@@ -33,7 +33,8 @@ namespace Stocktronic.Models
             {
                 var infoPago = (from x in contexto.PF_INFO_PAGO
                                 where x.FK_ID_USUARIO == idUsuario
-                                select x).LastOrDefault();
+                                orderby x.ID_INFOPAGO descending
+                                select x).FirstOrDefault();
 
                 PF_ORDEN orden = new PF_ORDEN();
                 orden.ORD_FEC_ORDEN = DateTime.Now;
@@ -55,7 +56,8 @@ namespace Stocktronic.Models
                 // Obtener ID de la última orden
                 var orden = (from x in contexto.PF_ORDEN
                              where x.FK_ID_USUARIO == idUsuario
-                             select x).LastOrDefault();
+                             orderby x.ID_ORDEN descending
+                             select x).FirstOrDefault();
 
                 // Obtener info de todos los artículos del carrito de compras
                 var productosCarrito = (from x in contexto.PF_CARRITO
