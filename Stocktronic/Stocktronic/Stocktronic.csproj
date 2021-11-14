@@ -142,9 +142,11 @@
     <Compile Include="Models\CarritoModel.cs" />
     <Compile Include="Models\CarritoProductoJoin.cs" />
     <Compile Include="Models\CatalogoModel.cs" />
+    <Compile Include="Models\ComprarModel.cs" />
     <Compile Include="Models\ConfirmacionJoin.cs" />
     <Compile Include="Models\ConfirmacionModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\MetodoPagoModel.cs" />
     <Compile Include="Models\ModeloStocktronic.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -330,6 +332,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Carrito\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Shared\_ListaMetodoPago.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

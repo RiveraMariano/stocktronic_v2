@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Stocktronic.Models.PF_METODO_PAGO>
+
+
+<select id="selectMet" name="metodo" class="form-control">
+    @foreach (var metodo in Model)
+    {
+        <option value="@metodo.ID_METODOPAGO">@metodo.METP_NOMBRE</option>
+    }
+</select>
+
