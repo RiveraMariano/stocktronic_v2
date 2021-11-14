@@ -15,50 +15,53 @@
 </head>
 
 <body>
-    <div class="container header-top">
-        <div class="row justify-content-center">
-            <div class="col-md-6 text-center mt-5">
-                <h2 class="heading-section">Historial de Compras</h2>
+    @if (Model.Count() > 0)
+    {
+        <div class="container header-top">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mt-5">
+                    <h2 class="heading-section">Historial de Compras</h2>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="table-wrap">
-                    <table class="table" id="tblHistorial">
-                        <thead class="thead-dark">
-                            <tr class="text-center">
-                                <th>#</th>
-                                <th>Método Pago</th>
-                                <th>Número Tarjeta</th>
-                                <th>Fec. Orden</th>
-                                <th>Monto Total</th>
-                                <th>Detalles Orden</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var orden in Model)
-                            {
-                                <tr class="alert text-center" role="alert">
-                                    <td scope="row" name="identificador">@orden.ID_ORDEN</td>
-                                    <td>@orden.METP_NOMBRE</td>
-                                    <td>@orden.PAG_NUM_TARJETA</td>
-                                    <td>@orden.ORD_FEC_ORDEN</td>
-                                    <td>₡@orden.ORD_MONTO_TOTAL</td>
-                                    <td>
-                                        <button data-id="@orden.ID_ORDEN" type="button" class="btn btn-sm btnDetalles" data-toggle="modal" data-target="#modalDetalles">
-                                            Detalles
-                                        </button>
-                                    </td>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-wrap">
+                        <table class="table" id="tblHistorial">
+                            <thead class="thead-dark">
+                                <tr class="text-center">
+                                    <th>#</th>
+                                    <th>Método Pago</th>
+                                    <th>Número Tarjeta</th>
+                                    <th>Fec. Orden</th>
+                                    <th>Monto Total</th>
+                                    <th>Detalles Orden</th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach (var orden in Model)
+                                {
+                                    <tr class="alert text-center" role="alert">
+                                        <td scope="row" name="identificador">@orden.ID_ORDEN</td>
+                                        <td>@orden.METP_NOMBRE</td>
+                                        <td>@orden.PAG_NUM_TARJETA</td>
+                                        <td>@orden.ORD_FEC_ORDEN</td>
+                                        <td>₡@orden.ORD_MONTO_TOTAL</td>
+                                        <td>
+                                            <button data-id="@orden.ID_ORDEN" type="button" onclick="MostrarDetalles(@orden.ID_ORDEN)" class="btn btn-sm btnDetalles" data-toggle="modal" 
+                                                    data-target="#modalDetalles">
+                                                Detalles
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    @if (Model.Count() == 0)
+    }
+    else
     {
         <div id="outer" class="container mt-5">
             <div id="inner">
@@ -93,13 +96,6 @@
                                     </tr>
                                 </thead>
                                 <tbody id="display_rows">
-                                    <tr class='text-center'>
-                                        <th scope='row'>12332</th>
-                                        <td>ColorBulb</td>
-                                        <td>5</td>
-                                        <td>₡2000</td>
-                                        <td><img src="~/Images/wireless_2.png" width="50" height="50" /></td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -109,7 +105,7 @@
         </div>
     </div>
 
-    <script src="../scripts/historial.js"></script>
+    <script src="~/Funciones/Ordenes.js"></script>
 
     <!-- Scripts for the table pagination -->
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>

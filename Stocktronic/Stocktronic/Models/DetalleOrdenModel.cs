@@ -18,6 +18,7 @@ namespace Stocktronic.Models
                                         where x.FK_ID_ORDEN == idOrden
                                         select new
                                         {
+                                            ID_DETALLEORDEN = x.ID_DETALLEORDEN,
                                             DET_PRECIO = x.DET_PRECIO,
                                             DET_CANTIDAD = x.DET_CANTIDAD,
                                             DET_URL_IMAGEN = x.DET_URL_IMAGEN,
@@ -31,6 +32,7 @@ namespace Stocktronic.Models
                     {
                         listaDetallesOrden.Add(new DetalleProductoJoin
                         {
+                            ID_DETALLEORDEN = producto.ID_DETALLEORDEN,
                             DET_PRECIO = producto.DET_PRECIO,
                             DET_CANTIDAD = producto.DET_CANTIDAD,
                             DET_URL_IMAGEN = producto.DET_URL_IMAGEN,

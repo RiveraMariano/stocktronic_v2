@@ -24,5 +24,21 @@ namespace Stocktronic.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult ListarDetallesOrden(int idOrden)
+        {
+            DetalleOrdenModel detalleOrden = new DetalleOrdenModel();
+            var detallesOrden = detalleOrden.ListarDetallesOrden(idOrden);
+
+            if (detallesOrden.Count > 0)
+            {
+                return Json(detallesOrden, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(null, JsonRequestBehavior.DenyGet);
+            }
+        }
+
     }
 }
