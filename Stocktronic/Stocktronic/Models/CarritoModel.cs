@@ -8,14 +8,14 @@ namespace Stocktronic.Models
     public class CarritoModel
     {
 
-        public List<CarritoProductoJoin> ListarProductosAgregados()
+        public List<CarritoProductoJoin> ListarProductosAgregados(int idUsuario)
         {
             using (var contexto = new STEntities())
             {
                 var carrito = (from x in contexto.PF_CARRITO
                                join y in contexto.PF_PRODUCTO 
                                on x.FK_ID_PRODUCTO equals y.ID_PRODUCTO
-                               where x.FK_ID_USUARIO == 1
+                               where x.FK_ID_USUARIO == idUsuario
                                select new 
                                {
                                    ID_CARRITO = x.ID_CARRITO,

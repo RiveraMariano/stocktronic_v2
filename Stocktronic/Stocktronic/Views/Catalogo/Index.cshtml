@@ -40,7 +40,7 @@
                             <div class="product-bottom-details">
                                 <div class="product-price">₡@producto.PRO_PRECIO</div>
                                 <div class="product-links">
-                                    <button type="button" data-id="@producto.ID_PRODUCTO" class="btnAdd" onclick="AgregarCarrito(@producto.ID_PRODUCTO, '@(producto.PRO_NOMBRE)')">
+                                    <button type="button" data-id="@producto.ID_PRODUCTO" class="btnAdd" onclick="AgregarCarrito(@producto.ID_PRODUCTO, '@(producto.PRO_NOMBRE)', @Session["ID_USUARIO"])">
                                         <i class="fa fa-shopping-cart"></i>
                                     </button>
                                 </div>

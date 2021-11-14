@@ -10,12 +10,12 @@ namespace Stocktronic.Controllers
     public class CarritoController : Controller
     {
 
-        public ActionResult Index()
+        public ActionResult Index(int idUsuario)
         {
             try
             {
                 CarritoModel carrito = new CarritoModel();
-                var productosAgregados = carrito.ListarProductosAgregados();
+                var productosAgregados = carrito.ListarProductosAgregados(idUsuario);
                 return View(productosAgregados);
             }
             catch (Exception)

@@ -25,12 +25,12 @@ namespace Stocktronic.Controllers
         }
 
         [HttpGet]
-        public ActionResult InsertarProducto(int idProducto)
+        public ActionResult InsertarProducto(int idProducto, int idUsuario)
         {
             try
             {
                 CatalogoModel catalogo = new CatalogoModel();
-                var productos = catalogo.InsertarProducto(idProducto);
+                var productos = catalogo.InsertarProducto(idProducto, idUsuario);
                 return Json(true, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)

@@ -95,7 +95,7 @@
                                     <p>Monto Total</p>
                                     <p>₡<span id="total_cart_amt">@montoTotal</span></p>
                                 </div>
-                                <a href="@Url.Action("Index", "Comprar")">
+                                <a href="@Url.Action("Index", "Comprar", new { idUsuario = @Session["ID_USUARIO"] })">
                                     <button class="btn btn-primary text-uppercase">Comprar</button>
                                 </a>
                             </div>

@@ -8,7 +8,7 @@ namespace Stocktronic.Models
     public class OrdenesModel
     {
 
-        public List<OrdenesJoin> ListarOrdenes()
+        public List<OrdenesJoin> ListarOrdenes(int idUsuario)
         {
             using (var contexto = new STEntities())
             {
@@ -17,7 +17,7 @@ namespace Stocktronic.Models
                               on x.FK_ID_INFOPAGO equals y.ID_INFOPAGO
                               join z in contexto.PF_METODO_PAGO
                               on y.FK_ID_METODOPAGO equals z.ID_METODOPAGO
-                              where x.FK_ID_USUARIO == 1
+                              where x.FK_ID_USUARIO == idUsuario
                               select new
                               {
                                   ID_ORDEN = x.ID_ORDEN,

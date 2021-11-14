@@ -1,8 +1,8 @@
-function AgregarCarrito(idProducto, nombreProducto) {
+function AgregarCarrito(idProducto, nombreProducto, idUsuario) {
     $.ajax({
         type: 'GET',
         url: '/Catalogo/InsertarProducto',
-        data: { idProducto: idProducto },
+        data: { idProducto: idProducto, idUsuario: idUsuario },
         dataType: 'json',
         success: function (data) {
             setTimeout(Swal.fire({

@@ -15,7 +15,7 @@ namespace Stocktronic.Controllers
             try
             {
                 ConfirmacionModel confirmacion = new ConfirmacionModel();
-                var confirmacionPago = confirmacion.ConfirmacionPago(1);
+                var confirmacionPago = confirmacion.ConfirmacionPago(Convert.ToInt32(Session["ID_USUARIO"].ToString()));
                 return View(confirmacionPago);
             }
             catch (Exception)

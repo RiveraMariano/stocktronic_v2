@@ -10,12 +10,12 @@ namespace Stocktronic.Controllers
     public class OrdenesController : Controller
     {
 
-        public ActionResult Index()
+        public ActionResult Index(int idUsuario)
         {
             try
             {
                 OrdenesModel ordenes = new OrdenesModel();
-                var historialOrdenes = ordenes.ListarOrdenes();
+                var historialOrdenes = ordenes.ListarOrdenes(idUsuario);
                 return View(historialOrdenes);
             }
             catch (Exception)
