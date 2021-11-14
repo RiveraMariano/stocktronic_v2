@@ -44,19 +44,16 @@
                             </div>
                             <div class="form-group col-sm-6">
                                 <label id="tipoVal">Tipo de usuario</label>
-                                <select id="selectTipo" name="selectTipo" class="form-control">
-                                    <option value="1">Administrador</option>
-                                            
-                                </select>
+                                @Html.Action("ListarRoles")
                             </div>
 
                             <div class="container">
                                 <div class="row">
                                     <div class="form-group col-sm-6">
-                                        <a href="tablaUsuarios.php"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
+                                        <a href="@Url.Action("Index", "Usuarios")"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
                                     </div>
                                     <div class="form-group col-sm-6">
-                                        <button id="btnInsert" type="submit" class="btn btn-block">Crear usuario</button>
+                                        <button id="btnInsert" type="button" onclick="InsertarUsuario(1)" class="btn btn-block">Crear usuario</button>
                                     </div>
                                 </div>
                             </div>
@@ -70,5 +67,6 @@
 
     <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/Funciones/Usuario.js"></script>
 
 </body>

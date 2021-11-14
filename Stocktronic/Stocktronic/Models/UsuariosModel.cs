@@ -56,5 +56,102 @@ namespace Stocktronic.Models
             }
         }
 
+        public Boolean InsertarUsuario(string nombre, string apellido1, string apellido2, string correo, string password, int idRol)
+        {
+            using (var contexto = new STEntities())
+            {
+                PF_USUARIO usuario = new PF_USUARIO();
+                usuario.USR_NOMBRE = nombre;
+                usuario.USR_APELLIDO1 = apellido1;
+                usuario.USR_APELLIDO2 = apellido2;
+                usuario.USR_EMAIL = correo;
+                usuario.USR_PASSWORD = password;
+                usuario.FK_ID_ROL = idRol;
+
+                contexto.PF_USUARIO.Add(usuario);
+                contexto.SaveChanges();
+                return true;
+            }
+        }
+
+        public Boolean ActualizarUsuario(int idUsuario, string nombre, string apellido1, string apellido2, string correo, string password, int idRol)
+        {
+            using (var contexto = new STEntities())
+            {
+                var usuario = (from x in contexto.PF_USUARIO
+                               where x.ID_USUARIO == idUsuario
+                               select x).FirstOrDefault();
+
+                usuario.USR_NOMBRE = nombre;
+                usuario.USR_APELLIDO1 = apellido1;
+                usuario.USR_APELLIDO2 = apellido2;
+                usuario.USR_EMAIL = correo;
+                usuario.USR_PASSWORD = password;
+                usuario.FK_ID_ROL = idRol;
+                contexto.SaveChanges();
+                return true;
+            }
+        }
+
+        public Boolean EliminarUsuario(int idUsuario)
+        {
+            using (var contexto = new STEntities())
+            {
+                // Eliminar los errores del usuario
+                var listaErrores = (from x in contexto.PF_H_ERRORES
+                                    where x.FK_ID_USUARIO == idUsuario
+                                    select x).ToList();
+                foreach (var error in listaErrores)
+                {
+                    contexto.PF_H_ERRORES.Remove(error);
+                }
+
+                // Eliminar los productos del carrito del usuario
+                var listaProductos = (from x in contexto.PF_CARRITO
+                                      where x.FK_ID_USUARIO == idUsuario
+                                      select x).ToList();
+                foreach (var producto in listaProductos)
+                {
+                    contexto.PF_CARRITO.Remove(producto);
+                }
+
+                // Eliminar los detalles de las ordenes del usuario
+                var listaDetalleOrdenes = (from x in contexto.PF_DETALLE_ORDEN
+                                           where x.FK_ID_USUARIO == idUsuario
+                                           select x).ToList();
+                foreach (var detalleOrden in listaDetalleOrdenes)
+                {
+                    contexto.PF_DETALLE_ORDEN.Remove(detalleOrden);
+                }
+
+                // Eliminar las ordenes del usuario
+                var listaOrdenes = (from x in contexto.PF_ORDEN
+                                    where x.FK_ID_USUARIO == idUsuario
+                                    select x).ToList();
+                foreach (var orden in listaOrdenes)
+                {
+                    contexto.PF_ORDEN.Remove(orden);
+                }
+
+                // Eliminar la información de los pagos del usuario
+                var listaPagos = (from x in contexto.PF_INFO_PAGO
+                                  where x.FK_ID_USUARIO == idUsuario
+                                  select x).ToList();
+                foreach (var infoPago in listaPagos)
+                {
+                    contexto.PF_INFO_PAGO.Remove(infoPago);
+                }
+
+                // Eliminar el usuario
+                var usuario = (from x in contexto.PF_USUARIO
+                               where x.ID_USUARIO == idUsuario
+                               select x).FirstOrDefault();
+
+                contexto.PF_USUARIO.Remove(usuario);
+                contexto.SaveChanges();
+                return true;
+            }
+        }
+
     }
 }

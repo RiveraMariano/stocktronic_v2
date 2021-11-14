@@ -18,7 +18,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mt-5">
                 <h2 class="heading-section">Lista de usuarios</h2>
-                <a href="formUserInsert.php"><button class="btn btn-primary mt-3 mb-4">Agregar Usuario</button></a>
+                <a href="@Url.Action("FormUsuarioInsertar", "Usuarios")"><button class="btn btn-primary mt-3 mb-4">Agregar Usuario</button></a>
             </div>
         </div>
         <div class="row">
@@ -43,10 +43,10 @@
                                     <td>@usuario.USR_EMAIL</td>
                                     <td>@usuario.ROL_TIPO</td>
                                     <td class="text-center">
-                                        <a href="@Url.Action("ActualizarUsuario", "Usuarios", new { idUsuario = usuario.ID_USUARIO })">
+                                        <a href="@Url.Action("FormUsuarioActualizar", "Usuarios", new { idUsuario = usuario.ID_USUARIO })">
                                             <button class="btn btn-success btn-md">Actualizar</button>
                                         </a>
-                                        <button data-id="$idUsuario" type="button" class="btn btn-danger btn-md btnDelete">Eliminar</button>
+                                        <button type="button" onclick="EliminarUsuario(@usuario.ID_USUARIO)" class="btn btn-danger btn-md btnDelete">Eliminar</button>
                                     </td>
                                 </tr>
                             }
@@ -60,6 +60,7 @@
 
     <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/Funciones/Usuario.js"></script>
 
     <!-- Scripts for the table pagination -->
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>

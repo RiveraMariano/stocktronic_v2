@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Stocktronic.Models.PF_ROL>
+
+<select id="selectTipo" name="selectTipo" class="form-control">
+    @foreach (var rol in Model)
+    {
+        <option value="@rol.ID_ROL">@rol.ROL_TIPO</option>
+    }
+</select>

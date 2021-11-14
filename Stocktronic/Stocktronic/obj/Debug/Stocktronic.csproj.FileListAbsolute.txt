@@ -1,3 +1,4 @@
+C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.csproj.CoreCompileInputs.cache
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\Stocktronic.dll.config
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\Stocktronic.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\Stocktronic.pdb
@@ -83,8 +84,6 @@ C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\es\System.Web.Raz
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\es\System.Web.WebPages.resources.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.csproj.CoreCompileInputs.cache
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.csproj.CopyComplete
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.pdb
-C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.csproj.AssemblyReference.cache
