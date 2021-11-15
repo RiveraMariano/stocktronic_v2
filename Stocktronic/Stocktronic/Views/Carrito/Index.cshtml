@@ -1,7 +1,9 @@
-﻿@model IEnumerable<Stocktronic.Models.CarritoProductoJoin>
+﻿@model IEnumerable<Stocktronic.Models.CarritoJoin>
 
 @{
     ViewBag.Title = "Carrito";
+    decimal nuevosPrecios = 0;
+    decimal montoTotal = 0;
 }
 
 <head>
@@ -81,14 +83,14 @@
                         <div class="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
                             <div class="rigth_side p-3 shadow bg-white">
                                 <h2 class="product_name mb-4">Desgloce Factura:</h2>
-                                @{decimal montoTotal = 0;}
                                 @foreach (var producto in Model)
                                 {
+                                    nuevosPrecios = producto.PRO_PRECIO * producto.CAR_CANTIDAD;
+                                    montoTotal = montoTotal + nuevosPrecios;
                                     <div class="price-indiv d-flex justify-content-between">
                                         <p>@producto.PRO_NOMBRE</p>
-                                        <p>+ ₡<span>@producto.PRO_PRECIO</span></p>
+                                        <p>+ ₡<span>@nuevosPrecios</span></p>
                                     </div>
-                                    montoTotal = montoTotal + producto.PRO_PRECIO;
                                 }
                                 <hr />
                                 <div class="total-amt d-flex justify-content-between font-weight-bold">

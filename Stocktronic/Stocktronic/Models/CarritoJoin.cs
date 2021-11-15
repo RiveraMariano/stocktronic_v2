@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Stocktronic.Models
 {
-    public class CarritoProductoJoin
+    public class CarritoJoin
     {
         public long ID_CARRITO { get; set; }
         public long CAR_CANTIDAD { get; set; }

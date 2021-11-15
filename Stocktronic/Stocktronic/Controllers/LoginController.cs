@@ -42,5 +42,12 @@ namespace Stocktronic.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult CerrarSesion()
+        {
+            Session.Clear();
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

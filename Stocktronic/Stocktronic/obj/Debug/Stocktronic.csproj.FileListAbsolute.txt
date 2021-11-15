@@ -87,3 +87,4 @@ C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\bin\es\System.Web.Web
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.csproj.CopyComplete
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.dll
 C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.pdb
+C:\Users\rivve\Desktop\stocktronic\Stocktronic\Stocktronic\obj\Debug\Stocktronic.csproj.AssemblyReference.cache

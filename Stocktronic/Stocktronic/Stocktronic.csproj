@@ -142,7 +142,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CarritoModel.cs" />
-    <Compile Include="Models\CarritoProductoJoin.cs" />
+    <Compile Include="Models\CarritoJoin.cs" />
     <Compile Include="Models\CatalogoModel.cs" />
     <Compile Include="Models\ComprarModel.cs" />
     <Compile Include="Models\ConfirmacionJoin.cs" />
@@ -221,6 +221,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Funciones\Carrito.js" />
+    <Content Include="Funciones\Logout.js" />
     <Content Include="Funciones\Usuario.js" />
     <Content Include="Funciones\Ordenes.js" />
     <Content Include="Global.asax" />
@@ -346,6 +347,7 @@
     <Content Include="Views\Shared\_ListaMetodoPago.cshtml" />
     <Content Include="Views\Shared\_ListaDetalleOrden.cshtml" />
     <Content Include="Views\Shared\_ListaRoles.cshtml" />
+    <Content Include="Views\Shared\_LayoutConfirmacion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

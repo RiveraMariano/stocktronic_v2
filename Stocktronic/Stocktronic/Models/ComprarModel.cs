@@ -73,12 +73,12 @@ namespace Stocktronic.Models
                                         }).ToList();
 
                 // Crear lista para insertar la info de inner join
-                List<CarritoProductoJoin> listaProductosCarrito = new List<CarritoProductoJoin>();
+                List<CarritoJoin> listaProductosCarrito = new List<CarritoJoin>();
                 if (productosCarrito.Count > 0)
                 {
                     foreach (var producto in productosCarrito)
                     {
-                        listaProductosCarrito.Add(new CarritoProductoJoin
+                        listaProductosCarrito.Add(new CarritoJoin
                         {
                             ID_PRODUCTO = producto.ID_PRODUCTO,
                             PRO_PRECIO = producto.PRO_PRECIO,

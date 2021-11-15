@@ -8,7 +8,7 @@ namespace Stocktronic.Models
     public class CarritoModel
     {
 
-        public List<CarritoProductoJoin> ListarProductosAgregados(int idUsuario)
+        public List<CarritoJoin> ListarProductosAgregados(int idUsuario)
         {
             using (var contexto = new STEntities())
             {
@@ -26,14 +26,15 @@ namespace Stocktronic.Models
                                    PRO_URL_IMAGEN = y.PRO_URL_IMAGEN,
                                }).ToList();
 
-                List<CarritoProductoJoin> listaProductos = new List<CarritoProductoJoin>();
+                List<CarritoJoin> listaProductos = new List<CarritoJoin>();
                 foreach (var producto in carrito)
                 {
-                    var innerJoin = new CarritoProductoJoin();
+                    var innerJoin = new CarritoJoin();
                     innerJoin.ID_CARRITO = producto.ID_CARRITO;
                     innerJoin.CAR_CANTIDAD = producto.CAR_CANTIDAD;
                     innerJoin.PRO_NOMBRE = producto.PRO_NOMBRE;
                     innerJoin.PRO_DESCRIPCION = producto.PRO_DESCRIPCION;
+                    innerJoin.PRO_PRECIO = producto.PRO_PRECIO;
                     innerJoin.PRO_URL_IMAGEN = producto.PRO_URL_IMAGEN;
                     listaProductos.Add(innerJoin);
                 }

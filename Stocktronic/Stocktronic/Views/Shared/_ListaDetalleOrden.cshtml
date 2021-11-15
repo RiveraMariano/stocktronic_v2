@@ -1,14 +1,17 @@
 ﻿@model IEnumerable<Stocktronic.Models.DetalleProductoJoin>
 
-@foreach (var detalle in Model) {
-<tr>
-    <td width="20%"> <img src="@detalle.DET_URL_IMAGEN" width="80" height="70" /></td>
-    <td width="60%">
-        <span class="font-weight-bold">@detalle.PRO_NOMBRE</span>
-        <div class="product-qty"> <span class="d-block mt-2">Cantidad: @detalle.DET_CANTIDAD</span></div>
-    </td>
-    <td width="20%">
-        <div class="text-right"><span class="font-weight-bold">₡@detalle.DET_PRECIO</span> </div>
-    </td>
-</tr>
+@{decimal nuevosPrecios = 0;}
+@foreach (var detalle in Model)
+{
+    nuevosPrecios = detalle.DET_PRECIO * detalle.DET_CANTIDAD;
+    <tr>
+        <td width="20%"> <img src="@detalle.DET_URL_IMAGEN" width="80" height="70" /></td>
+        <td width="60%">
+            <span class="font-weight-bold">@detalle.PRO_NOMBRE</span>
+            <div class="product-qty"> <span class="d-block mt-2">Cantidad: @detalle.DET_CANTIDAD</span></div>
+        </td>
+        <td width="20%">
+            <div class="text-right"><span class="font-weight-bold">₡@nuevosPrecios</span> </div>
+        </td>
+    </tr>
 }

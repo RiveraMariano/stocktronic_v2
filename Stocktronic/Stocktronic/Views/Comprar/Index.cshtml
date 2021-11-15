@@ -1,8 +1,9 @@
-﻿@model IEnumerable<Stocktronic.Models.CarritoProductoJoin>
+﻿@model IEnumerable<Stocktronic.Models.CarritoJoin>
 
 @{
     ViewBag.Title = "Checkout";
-    decimal total = 0;
+    decimal nuevosPrecios = 0;
+    decimal montoTotal = 0;
 }
 
 <head>
@@ -26,14 +27,15 @@
                         <h3 class="title">Checkout</h3>
                         @foreach (var producto in Model)
                         {
-                            total = total + producto.PRO_PRECIO;
+                            nuevosPrecios = producto.PRO_PRECIO * producto.CAR_CANTIDAD;
+                            montoTotal = montoTotal + nuevosPrecios;
                             <div class="item">
-                                <span class="price">₡@producto.PRO_PRECIO</span>
+                                <span class="price">₡@nuevosPrecios</span>
                                 <p class="item-name">@producto.PRO_NOMBRE @producto.CAR_CANTIDAD</p>
                                 <p class="item-description">@producto.PRO_DESCRIPCION</p>
                             </div>
                         }
-                        <div class="total">Total<span class="price">₡@total</span></div>
+                        <div class="total">Total<span class="price">₡@montoTotal</span></div>
                     </div>
 
                     <!-- Second section -->
@@ -108,7 +110,7 @@
                                 <a href="carrito.php"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
                             </div>
                             <div class="form-group col-sm-6">
-                                <button id="btnBuy" name="submitBtn" type="button" onclick="RealizarCompra(@total, @Session["ID_USUARIO"], 1)" class="btn btn-block">Confirmar Compra</button>
+                                <button id="btnBuy" name="submitBtn" type="button" onclick="RealizarCompra(@montoTotal, @Session["ID_USUARIO"], 1)" class="btn btn-block">Confirmar Compra</button>
                             </div>
                         </div>
                     </div>
