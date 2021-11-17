@@ -186,7 +186,7 @@ function getValuePassword(e) {
     }
 }
 
-function InsertarUsuario(idRol) {
+function InsertarUsuario() {
     $.ajax({
         type: 'GET',
         url: '/Usuarios/InsertarUsuario',
@@ -196,7 +196,7 @@ function InsertarUsuario(idRol) {
             apellido2: inputApellido2.value,
             correo: inputEmail.value,
             password: inputPassword.value,
-            idRol: idRol,
+            idRol: $("#selectTipo").val(),
         },
         success: function (data) {
             setTimeout(
@@ -234,7 +234,7 @@ function InsertarUsuario(idRol) {
     });
 }
 
-function ActualizarUsuario(idRol) {
+function ActualizarUsuario() {
     $.ajax({
         type: 'GET',
         url: '/Usuarios/ActualizarUsuario',
@@ -245,7 +245,7 @@ function ActualizarUsuario(idRol) {
             apellido2: inputApellido2.value,
             correo: inputEmail.value,
             password: inputPassword.value,
-            idRol: idRol,
+            idRol: $("#selectTipo").val(),
         },
         success: function (data) {
             Swal.fire({

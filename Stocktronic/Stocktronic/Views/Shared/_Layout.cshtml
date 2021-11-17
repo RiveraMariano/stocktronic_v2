@@ -63,7 +63,7 @@
             <li class="nav-item mt-1 mr-5">
                 <a class="header-link" href="@Url.Action("Index", "Carrito", new { idUsuario = Session["ID_USUARIO"] })">
                     <i class="fa fa-shopping-cart"></i>
-                    @if(Session["Cantidad"] != null)
+                    @if (Session["Cantidad"] != null)
                     {
                         @Session["Cantidad"];
                     }
