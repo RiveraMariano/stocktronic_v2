@@ -31,6 +31,7 @@ namespace Stocktronic.Controllers
             {
                 CatalogoModel catalogo = new CatalogoModel();
                 var productos = catalogo.InsertarProducto(idProducto, idUsuario);
+                Session["Cantidad"] = int.Parse(Session["Cantidad"].ToString()) + 1;
                 return Json(true, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)

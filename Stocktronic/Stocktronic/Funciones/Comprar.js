@@ -237,7 +237,7 @@ function getValueCod(e) {
 }
 
 // Luego corregir metodoPago
-function RealizarCompra(total, idUsuario, idMetodoPago) {
+function RealizarCompra(total, idUsuario) {
     // First it sends a pop-up to the user
     Swal.fire({
         icon: 'info',
@@ -263,7 +263,7 @@ function RealizarCompra(total, idUsuario, idMetodoPago) {
                     telefono: inputTel.value,
                     total: total,
                     idUsuario: idUsuario,
-                    idMetodoPago: idMetodoPago,
+                    idMetodoPago: $("#selectMet").val(),
                 },
                 // If it succeded then it sends a pop-up to the user
                 success: function (data) {

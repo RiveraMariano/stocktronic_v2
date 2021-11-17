@@ -61,6 +61,7 @@ namespace Stocktronic.Controllers
             {
                 CarritoModel carrito = new CarritoModel();
                 var productos = carrito.EliminarProducto(idCarrito);
+                Session["Cantidad"] = int.Parse(Session["Cantidad"].ToString()) - 1;
                 return Json(true, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
