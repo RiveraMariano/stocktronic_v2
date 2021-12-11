@@ -1,6 +1,7 @@
-﻿
-@{
-    ViewBag.Title = "TablaEntregas";
+﻿@model IEnumerable<Stocktronic.Models.ProductosJoin>
+
+@{ 
+    ViewBag.Title = "TablaProductos"; 
 }
 
 <head>
@@ -12,10 +13,12 @@
 </head>
 
 <body>
+
     <div class="container header-top">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mt-5">
-                <h2 class="heading-section">Historial Entregas</h2>
+                <h2 class="heading-section">Inventario Stocktronic</h2>
+                <a href="@Url.Action("FormAgregarProducto", "Productos")"><button class="btn btn-primary mt-3 mb-4">Agregar Producto</button></a>
             </div>
         </div>
         <div class="row">
@@ -25,18 +28,32 @@
                         <thead class="thead-dark">
                             <tr class="text-center">
                                 <th>#</th>
-                                <th>Fec. Entrega</th>
-                                <th>Producto</th>
-                                <th>Proveedor</th>
+                                <th>Nombre</th>
+                                <th>Imagen</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Categoría</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="text-center">
-                                <th>2342356</th>
-                                <td scope="row">23/9/32</td>
-                                <td>ColorBulb</td>
-                                <td>1-1111-1111</td>
-                            </tr>
+                            @foreach (var producto in Model)
+                            {
+                <tr class="text-center">
+                    <th>@producto.ID_PRODUCTO</th>
+                    <th>@producto.PRO_NOMBRE</th>
+                    <td class="text-center"><img src="@producto.PRO_URL_IMAGEN" alt="imagen" width="90" height="90" /></td>
+                    <td>@producto.PRECIO</td>
+                    <td>@producto.CANTIDAD</td>
+                    <td>@producto.CATEGORIA</td>
+                    <td class="text-center">
+                        <a href="@Url.Action("FormActualizarProducto", "Productos", new { idProducto = producto.ID_PRODUCTO })">
+                            <button class="btn btn-success btn-md">Actualizar</button>
+                        </a>
+                        <button type="button" onclick="EliminarProducto(@producto.ID_PRODUCTO)" class="btn btn-danger btn-md btnDelete">Eliminar</button>
+                    </td>
+                </tr>
+}
                         </tbody>
                     </table>
                 </div>
@@ -46,6 +63,8 @@
 
     <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Funciones/Producto.js"></script>
 
     <!-- Scripts for the table pagination -->
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -66,4 +85,3 @@
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
 
 </body>
-

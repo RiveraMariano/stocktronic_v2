@@ -44,21 +44,22 @@
                             </div>
                             <div class="form-group col-sm-6">
                                 <label id="proveedorVal">Proveedor</label>
-                                <select id="selectProveedor" name="proveedor" class="form-control">
-                                    <option value="2">Nombre Proveedor</option>
-                                </select>
+                                @Html.Action("ListarProveedores")
                             </div>
                             <div class="form-group col-sm-6">
                                 <label id="categoriaVal">Categoría</label>
-                                <select id="selectCategoria" name="categoria" class="form-control">
-                                    <option value="1">Componente</option>
-                                </select>
+                                @Html.Action("ListarCategoria")
                             </div>
-                            <div class="form-group col-sm-6">
-                                <a href="tablaProductos.php"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <button id="btnInsert" type="submit" class="btn btn-block">Agregar Producto</button>
+                            <div class="container">
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <a href="@Url.Action("Index", "Productos")"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <button id="btnInsert" type="button" onclick="InsertarProducto()" class="btn btn-block">Insertar Producto</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -69,5 +70,6 @@
 
     <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/Funciones/Producto.js"></script>
 
 </body>

@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Stocktronic.Models.PF_PROVEEDOR>
+
+<select id="selectProveedor" name="selectTipo" class="form-control">
+    @foreach (var proveedor in Model)
+    {
+<option value="@proveedor.ID_PROVEEDOR">@proveedor.PROV_NOMBRE</option>}
+</select>

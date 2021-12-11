@@ -6,6 +6,10 @@ body {
   font-size: 1.5rem !important;
 }
 
+.swal2-container {
+    z-index: 999999;
+}
+
 .margin-top {
   margin-top: 200px;
 }

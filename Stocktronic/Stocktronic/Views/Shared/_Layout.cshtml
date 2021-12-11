@@ -84,12 +84,12 @@
                         <a class="dropdown-item" href="@Url.Action("Index", "Ordenes", new { idUsuario = @Session["ID_USUARIO"] })">Historial</a>
                         @if (Session["FK_ID_ROL"].ToString() == "1" || Session["FK_ID_ROL"].ToString() == "2")
                         {
-        <a class="dropdown-item" href="">Tabla Productos</a>
-                            <a class="dropdown-item" href="">Tabla Entregas</a>}
+                    <a class="dropdown-item" href="@Url.Action("Index", "Productos")">Tabla Productos</a>
+                                        <a class="dropdown-item" href="@Url.Action("Index", "Entregas")">Tabla Entregas</a>}
                         @if (Session["FK_ID_ROL"].ToString() == "1")
                         {
-        <a class="dropdown-item" href="@Url.Action("Index", "Usuarios")">Tabla Usuarios</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Errores")">Tabla Errores</a>}
+                    <a class="dropdown-item" href="@Url.Action("Index", "Usuarios")">Tabla Usuarios</a>
+                                        <a class="dropdown-item" href="@Url.Action("Index", "Errores")">Tabla Errores</a>}
                         <div class="dropdown-divider"></div>
                         <a id="logout" class="dropdown-item" onclick="CerrarSesion()" style='color:red'>Cerrar Sesión</a>
                     </div>

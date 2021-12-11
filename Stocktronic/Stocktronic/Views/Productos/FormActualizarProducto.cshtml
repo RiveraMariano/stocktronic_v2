@@ -1,4 +1,5 @@
-﻿
+﻿@model Stocktronic.Models.PF_PRODUCTO
+
 @{
     ViewBag.Title = "FormActualizarProducto";
 }
@@ -24,45 +25,46 @@
                         <div class="row">
                             <div class="form-group col-sm-4">
                                 <label id="idVal">ID Producto</label>
-                                <input id="idProducto" name="id" type="number" class="form-control" placeholder="Identificador" value="777" disabled>
+                                <input id="idProducto" name="id" type="number" class="form-control" placeholder="Identificador" value="@Model.ID_PRODUCTO" disabled>
                             </div>
                             <div class="form-group col-sm-8">
                                 <label id="nomVal">Nombre Producto</label>
-                                <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" value="ColorBulb" required>
+                                <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" value="@Model.PRO_NOMBRE" required>
                             </div>
                             <div class="form-group col-sm-12">
                                 <label id="descVal">Descripción Producto</label>
-                                <input id="desc" name="desc" type="text" class="form-control" placeholder="Descripcion" value="Bombillo de colores" required>
+                                <input id="desc" name="desc" type="text" class="form-control" placeholder="Descripcion" value="@Model.PRO_DESCRIPCION" required>
                             </div>
                             <div class="form-group col-sm-12">
                                 <label id="urlVal">URL Imagen</label>
-                                <input id="url" name="url" type="text" class="form-control" placeholder="URL" value="https://urlimagen.com" required>
+                                <input id="url" name="url" type="text" class="form-control" placeholder="URL" value="@Model.PRO_URL_IMAGEN" required>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label id="precioVal">Precio Producto</label>
-                                <input id="precio" name="precio" type="number" class="form-control" placeholder="Precio" value="5000" required>
+                                <input id="precio" name="precio" type="number" class="form-control" placeholder="Precio" value="@Model.PRO_PRECIO" required>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label id="cantVal">Cantidad Producto</label>
-                                <input id="cant" name="cantidad" type="number" class="form-control" placeholder="Cantidad" value="90" required>
+                                <input id="cant" name="cantidad" type="number" class="form-control" placeholder="Cantidad" value="@Model.PRO_CANTIDAD" required>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label id="proveedorVal">Proveedor</label>
-                                <select id="selectProveedor" name="proveedor" class="form-control">
-                                    <option value="1">Nombre Proveedor</option>
-                                </select>
+                                @Html.Action("ListarProveedores")
                             </div>
                             <div class="form-group col-sm-6">
                                 <label id="categoriaVal">Categoría</label>
-                                <select id="selectCategoria" name="categoria" class="form-control">
-                                    <option value="1">Componente</option>
-                                </select>
+                                @Html.Action("ListarCategoria")
                             </div>
-                            <div class="form-group col-sm-6">
-                                <a href="tablaProductos.php"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <button id="btnUpdate" type="submit" class="btn btn-block">Actualizar Producto</button>
+                            <div class="container">
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <a href="@Url.Action("Index", "Productos")"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <button id="btnUpdate" type="button" onclick="ActualizarProducto()" class="btn btn-block">Actualizar Producto</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -73,5 +75,6 @@
 
     <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/Funciones/Producto.js"></script>
 
 </body>

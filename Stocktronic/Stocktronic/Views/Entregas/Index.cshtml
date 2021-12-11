@@ -1,6 +1,7 @@
-﻿
+﻿@model IEnumerable<Stocktronic.Models.EntregasJoin>
+
 @{
-    ViewBag.Title = "TablaProductos";
+    ViewBag.Title = "TablaEntregas";
 }
 
 <head>
@@ -12,12 +13,10 @@
 </head>
 
 <body>
-
     <div class="container header-top">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mt-5">
-                <h2 class="heading-section">Inventario Stocktronic</h2>
-                <a href="formProductoInsert.php"><button class="btn btn-primary mt-3 mb-4">Agregar Producto</button></a>
+                <h2 class="heading-section">Historial Entregas</h2>
             </div>
         </div>
         <div class="row">
@@ -27,27 +26,20 @@
                         <thead class="thead-dark">
                             <tr class="text-center">
                                 <th>#</th>
-                                <th>Nombre</th>
-                                <th>Imagen</th>
-                                <th>Precio</th>
-                                <th>Cantidad</th>
-                                <th>Categoría</th>
-                                <th>Acciones</th>
+                                <th>Fec. Entrega</th>
+                                <th>Producto</th>
+                                <th>Proveedor</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="text-center">
-                                <th>30</th>
-                                <td scope="row">ColorBulb</td>
-                                <td class="text-center"><img src="~/Images/wireless_2.png" alt="imagen" width="90" height="90" /></td>
-                                <td>5000</td>
-                                <td>90</td>
-                                <td>Wireless</td>
-                                <td class="text-center">
-                                    <a href="formProductoUpdate.php?q=' . $idProducto . '"><button class="btn btn-success btn-md">Actualizar</button></a>
-                                    <button data-id="' . $idProducto . '" type="button" class="btn btn-danger btn-md btnDelete">Eliminar</button>
-                                </td>
-                            </tr>
+                            @foreach (var usuario in Model)
+                            {
+                        <tr class="text-center">
+                            <th>@usuario.ID_ENTREGAS</th>
+                            <td>@usuario.ENT_FEC_ENTREGA</td>
+                            <td>@usuario.PRO_NOMBRE</td>
+                            <td>@usuario.PROV_NOMBRE</td>
+                        </tr>}
                         </tbody>
                     </table>
                 </div>
@@ -77,4 +69,3 @@
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
 
 </body>
-

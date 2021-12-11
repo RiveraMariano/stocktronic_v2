@@ -45,6 +45,29 @@ namespace Stocktronic.Controllers
         }
 
         [HttpGet]
+        public ActionResult RegistrarUsuario(string nombre, string apellido1, string apellido2, string correo, string contrasenna)
+        {
+            LoginModel registro = new LoginModel();
+            var usuario = registro.RegistrarUsuario(nombre, apellido1, apellido2, correo, contrasenna);
+            var usuarioAuth = registro.IniciarSesion(correo, contrasenna);
+
+            if (usuario != null)
+            {
+                Session["ID_USUARIO"] = usuarioAuth.ID_USUARIO;
+                Session["USR_NOMBRE"] = usuarioAuth.USR_NOMBRE;
+                Session["USR_APELLIDO1"] = usuarioAuth.USR_APELLIDO1;
+                Session["FK_ID_ROL"] = usuarioAuth.FK_ID_ROL;
+                CarritoModel carrito = new CarritoModel();
+                Session["Cantidad"] = carrito.ListarProductosAgregados(Convert.ToInt32(usuarioAuth.ID_USUARIO)).Count();
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(true, JsonRequestBehavior.DenyGet);
+            }
+        }
+
+        [HttpGet]
         public ActionResult CerrarSesion()
         {
             Session.Clear();

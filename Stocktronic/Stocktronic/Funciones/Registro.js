@@ -1,10 +1,19 @@
-function IniciarSesion() {
-    let correo = document.getElementById('emailLogin').value;
-    let contrasenna = document.getElementById('passwordLogin').value;
+ï»¿function RegistrarUsuario() {
+    let nombre = document.getElementById('name').value;
+    let apellido1 = document.getElementById('lastName1').value;
+    let apellido2 = document.getElementById('lastName2').value;
+    let correo = document.getElementById('email').value;
+    let contrasenna = document.getElementById('password').value;
     $.ajax({
         type: "GET",
-        url: '/Login/IniciarSesion',
-        data: { correo: correo, contrasenna: contrasenna },
+        url: '/Login/RegistrarUsuario',
+        data: {
+            nombre: nombre,
+            apellido1: apellido1,
+            apellido2: apellido2,
+            correo: correo,
+            contrasenna: contrasenna,
+        },
         success: function (data) {
             setTimeout(Swal.fire({
                 icon: 'info',
@@ -41,7 +50,7 @@ function IniciarSesion() {
                 setTimeout(Swal.fire({
                     icon: 'error',
                     title: 'Hubo un Error',
-                    text: 'Usuario o contraseña incorrectos',
+                    text: 'Error al registrar usuario',
                     position: "top-end",
                     toast: true,
                     showCancelButton: false,

@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Stocktronic.Models.PF_CATEGORIA>
+
+<select id="selectCategoria" name="selectTipo" class="form-control">
+    @foreach (var categoria in Model)
+    {
+<option value="@categoria.ID_CATEGORIA">@categoria.CAT_TIPO</option>
+}
+</select>

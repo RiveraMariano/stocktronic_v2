@@ -133,10 +133,12 @@
     <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\ComprarController.cs" />
     <Compile Include="Controllers\ConfirmacionController.cs" />
+    <Compile Include="Controllers\EntregasController.cs" />
     <Compile Include="Controllers\ErroresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OrdenesController.cs" />
+    <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -144,11 +146,14 @@
     <Compile Include="Models\CarritoModel.cs" />
     <Compile Include="Models\CarritoJoin.cs" />
     <Compile Include="Models\CatalogoModel.cs" />
+    <Compile Include="Models\CategoriasModel.cs" />
     <Compile Include="Models\ComprarModel.cs" />
     <Compile Include="Models\ConfirmacionJoin.cs" />
     <Compile Include="Models\ConfirmacionModel.cs" />
     <Compile Include="Models\DetalleOrdenModel.cs" />
     <Compile Include="Models\DetalleProductoJoin.cs" />
+    <Compile Include="Models\EntregasJoin.cs" />
+    <Compile Include="Models\EntregasModel.cs" />
     <Compile Include="Models\ErroresJoin.cs" />
     <Compile Include="Models\ErroresModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -209,6 +214,9 @@
     <Compile Include="Models\PF_USUARIO.cs">
       <DependentUpon>ModeloStocktronic.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductosJoin.cs" />
+    <Compile Include="Models\ProductosModel.cs" />
+    <Compile Include="Models\ProveedoresModel.cs" />
     <Compile Include="Models\RolesModel.cs" />
     <Compile Include="Models\UsuariosJoin.cs" />
     <Compile Include="Models\UsuariosModel.cs" />
@@ -222,6 +230,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Funciones\Carrito.js" />
     <Content Include="Funciones\Logout.js" />
+    <Content Include="Funciones\Producto.js" />
+    <Content Include="Funciones\Registro.js" />
     <Content Include="Funciones\Usuario.js" />
     <Content Include="Funciones\Ordenes.js" />
     <Content Include="Global.asax" />
@@ -328,15 +338,11 @@
     <Content Include="Views\Catalogo\Index.cshtml" />
     <Content Include="Views\Comprar\Index.cshtml" />
     <Content Include="Views\Confirmacion\Index.cshtml" />
-    <Content Include="Views\Home\FormActualizarProducto.cshtml" />
     <Content Include="Views\Usuarios\FormUsuarioActualizar.cshtml" />
-    <Content Include="Views\Home\FormAgregarProducto.cshtml" />
     <Content Include="Views\Usuarios\FormUsuarioInsertar.cshtml" />
     <Content Include="Views\Ordenes\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\TablaEntregas.cshtml" />
     <Content Include="Views\Errores\Index.cshtml" />
-    <Content Include="Views\Home\TablaProductos.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -348,6 +354,12 @@
     <Content Include="Views\Shared\_ListaDetalleOrden.cshtml" />
     <Content Include="Views\Shared\_ListaRoles.cshtml" />
     <Content Include="Views\Shared\_LayoutConfirmacion.cshtml" />
+    <Content Include="Views\Productos\FormActualizarProducto.cshtml" />
+    <Content Include="Views\Productos\FormAgregarProducto.cshtml" />
+    <Content Include="Views\Productos\Index.cshtml" />
+    <Content Include="Views\Shared\_ListaCategorias.cshtml" />
+    <Content Include="Views\Shared\_ListaProveedores.cshtml" />
+    <Content Include="Views\Entregas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -19,5 +19,23 @@ namespace Stocktronic.Models
             }
         }
 
+        public string RegistrarUsuario(string nombre, string apellido1, string apellido2, string correo, string contrasenna)
+        {
+            using (var contexto = new STEntities())
+            {
+                PF_USUARIO usuario = new PF_USUARIO();
+                usuario.USR_NOMBRE = nombre;
+                usuario.USR_APELLIDO1 = apellido1;
+                usuario.USR_APELLIDO2 = apellido2;
+                usuario.USR_EMAIL = correo;
+                usuario.USR_PASSWORD = contrasenna;
+                usuario.FK_ID_ROL = 3;
+
+                contexto.PF_USUARIO.Add(usuario);
+                contexto.SaveChanges();
+                return "Registro de usuario exitoso";
+            }
+        }
+
     }
 }
