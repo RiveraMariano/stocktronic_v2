@@ -253,6 +253,13 @@ function ActualizarUsuario() {
                 title: 'Atención!',
                 text: 'Usuario actualizado correctamente.',
                 confirmButtonText: 'Aceptar',
+            }).then(resultado => {
+                if (resultado.value) {
+                    // Hicieron click en "Aceptar"
+                    window.location.href = "/Usuarios/Index";
+                } else {
+
+                }
             });
         },
     });

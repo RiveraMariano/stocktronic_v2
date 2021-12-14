@@ -58,7 +58,7 @@ namespace Stocktronic.Controllers
                 Session["USR_APELLIDO1"] = usuarioAuth.USR_APELLIDO1;
                 Session["FK_ID_ROL"] = usuarioAuth.FK_ID_ROL;
                 CarritoModel carrito = new CarritoModel();
-                Session["Cantidad"] = carrito.ListarProductosAgregados(Convert.ToInt32(usuarioAuth.ID_USUARIO)).Count();
+                Session["Cantidad"] = carrito.CantidadCarrito(Convert.ToInt32(usuarioAuth.ID_USUARIO));
                 return Json(true, JsonRequestBehavior.AllowGet);
             }
             else

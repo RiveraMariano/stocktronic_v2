@@ -27,10 +27,13 @@ namespace Stocktronic.Controllers
         [HttpGet]
         public ActionResult ReducirCantidad(int idCarrito)
         {
+            var idUsuario = Session["ID_USUARIO"];
+
             try
             {
                 CarritoModel carrito = new CarritoModel();
                 var productos = carrito.ReducirCantidad(idCarrito);
+                Session["Cantidad"] = carrito.CantidadCarrito(Convert.ToInt32(idUsuario));
                 return Json(true, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -42,10 +45,13 @@ namespace Stocktronic.Controllers
         [HttpGet]
         public ActionResult AumentarCantidad(int idCarrito)
         {
+            var idUsuario = Session["ID_USUARIO"];
+
             try
             {
                 CarritoModel carrito = new CarritoModel();
                 var productos = carrito.AumentarCantidad(idCarrito);
+                Session["Cantidad"] = carrito.CantidadCarrito(Convert.ToInt32(idUsuario));
                 return Json(true, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)

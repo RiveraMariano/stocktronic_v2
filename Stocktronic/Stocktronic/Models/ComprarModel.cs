@@ -29,6 +29,8 @@ namespace Stocktronic.Models
 
         public Boolean InsertarOrden(int idUsuario)
         {
+            Decimal IVA = 1.13m;
+
             using (var contexto = new STEntities())
             {
                 var infoPago = (from x in contexto.PF_INFO_PAGO
@@ -38,7 +40,7 @@ namespace Stocktronic.Models
 
                 PF_ORDEN orden = new PF_ORDEN();
                 orden.ORD_FEC_ORDEN = DateTime.Now;
-                orden.ORD_MONTO_TOTAL = infoPago.PAG_TOTAL * 2; // Cambiar a 1.13 IVA
+                orden.ORD_MONTO_TOTAL = infoPago.PAG_TOTAL * IVA;
                 orden.FK_ID_INFOPAGO = infoPago.ID_INFOPAGO;
                 orden.FK_ID_USUARIO = idUsuario;
 
